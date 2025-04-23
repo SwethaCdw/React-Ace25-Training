@@ -1,10 +1,10 @@
-import Header from "./components/Header"
+import DetailsPage from "./pages/DetailsPage"
 
 function App() {
 
   return (
     <>
-      <Header />
+      <DetailsPage />
     </>
   )
 }

@@ -2,7 +2,7 @@ import '../assets/styles/header.css'
 
 const Header = () => {
     return (
-        <>
+        <header className='header'>
             <div className="logo-wrapper">
                 <img src="./src/assets/images/logo.png" alt="Logo" />
             </div>
@@ -11,7 +11,7 @@ const Header = () => {
                 <li className="header-nav-link">Bike Rentals</li>
                 <li className="header-nav-link">Restaurants</li>
             </ul>
-        </>  
+        </header>  
     );
 };
 

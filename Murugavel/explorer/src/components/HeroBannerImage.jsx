@@ -1,9 +1,9 @@
 import '../assets/styles/hero-banner.css'
 
-const HeroBannerImage = ({ place }) => {
+const HeroBannerImage = ({ image, style }) => {
     return (
         <div className="hero-banner-wrapper">
-            <img src={`./src/assets/images/places/${place}.png`} alt="Banner image" />
+            <img src={`./src/assets/images/${image}.png`} alt="Banner image" style={style} />
         </div>
     );
 }

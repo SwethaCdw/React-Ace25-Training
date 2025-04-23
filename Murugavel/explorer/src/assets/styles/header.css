@@ -1,0 +1,20 @@
+.header{
+    height: 7.2rem;
+    display: flex;
+    align-items: center;
+    padding: 0 4rem;
+}
+
+.logo-wrapper{
+    height: 2.36rem;
+    width: 8.82rem;
+}
+
+.header-nav-list{
+    margin-left: auto;
+    list-style: none;
+    display: flex;
+    column-gap: 3.92rem;
+    font-weight: 450;
+    font-size: 1.05rem;
+}
