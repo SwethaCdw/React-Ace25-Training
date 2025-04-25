@@ -2,7 +2,55 @@
     position: relative;
 }
 
+/* Travels section beginning */
+
 .travels-info-container{
-    padding-left: 5rem;
-    width: 30rem;
+    padding: 10.5rem 0 5.19rem 9.3rem;
+    width: 40rem;
 }
+
+.welcome-text{
+    font-size: 1.45rem;
+    font-weight: 450;
+    color: var(--side-info);
+}
+
+.info-text{
+    margin-top: 2.3rem;
+    font-size: 4.5rem;
+    font-weight: 300;
+    line-height: 5.43rem;
+}
+
+.extra-bold{
+    font-weight: 600;
+}
+
+.place-input-container{
+    padding-left: 9.3rem;
+}
+
+/* Travels section ending */
+
+/* Destination section beginning */
+
+.destinations{
+    width: 86.8%;
+    margin: auto;
+    margin-top: 7.95rem;
+}
+
+.destinations-header{
+    font-size: 2.96rem;
+    font-weight: 450;
+    letter-spacing: 1px;
+}
+
+.destinations-subtext{
+    font-size: 1.48rem;
+    font-weight: 350;
+    word-spacing: 1.6px;
+    color: var(--side-info);
+}
+
+/* Destination section ending */

@@ -3,6 +3,11 @@
 :root{
     --primary-color: #7a1655;
     --secondary-color: #ffffff;
+    --side-info: #9a4f7e;
+    --black: #000;
+    --dropdown-header: #8b8b8b;
+    --dropdown-text: #444;
+    --dropdown-list-border: #ccc;
 }
 
 /* Resetting default styles */
@@ -23,4 +28,12 @@ body{
 img{
     height: 100%;
     width: 100%;
+}
+
+input, .dropdown{
+    width: 44.1rem;
+}
+
+select{
+    font-size: 1.1rem;
 }

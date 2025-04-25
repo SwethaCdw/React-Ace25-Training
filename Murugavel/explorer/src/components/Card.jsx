@@ -12,7 +12,7 @@ const Card = ({place, city, shortDescription}) => {
             <p className="card-description">
                 {shortDescription}
             </p>
-            <Button />
+            <Button>READ MORE</Button>
         </div>
     );
 }

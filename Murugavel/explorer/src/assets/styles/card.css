@@ -1,0 +1,19 @@
+.card{
+    width: 30rem;
+    display: grid;
+    color: var(--black);
+}
+
+.card-image-wrapper{
+    height: 22.55rem;
+}
+
+.card-title{
+    font-weight: 250;
+    font-size: 2.27rem;
+    margin-top: 1rem;
+}
+
+.card > button{
+    align-self: end;
+}

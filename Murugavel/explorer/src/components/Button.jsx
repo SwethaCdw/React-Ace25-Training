@@ -1,6 +1,8 @@
-const Button = () => {
+import '../assets/styles/button.css'
+
+const Button = ({children}) => {
     return (
-        <button className="card-button">Read More</button>
+        <button className="button">{children}</button>
     )
 }
 
