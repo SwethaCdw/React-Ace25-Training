@@ -1,60 +1,41 @@
-.main{
-    position: relative;
-}
-
-/* Travels section beginning */
-
-.travels-info-container{
-    padding: 10.5rem 0 5.19rem 9.3rem;
-    width: 40rem;
-}
-
-.welcome-text{
-    font-size: 1.45rem;
-    font-weight: 450;
-    color: var(--side-info);
-}
-
-.info-text{
-    margin-top: 2.3rem;
-    font-size: 4.5rem;
-    font-weight: 300;
-    line-height: 5.43rem;
-}
-
-.extra-bold{
-    font-weight: 600;
-}
-
-.place-input-container{
-    padding-left: 9.3rem;
-}
-
-.place-input-container > button{
-    padding: 0 2.4rem;
-}
-
-/* Travels section ending */
-
-/* Destination section beginning */
-
-.destinations{
-    width: 86.8%;
-    margin: auto;
-    margin-top: 7.95rem;
-}
-
-.destinations-header{
-    font-size: 2.96rem;
-    font-weight: 450;
-    letter-spacing: 1px;
-}
-
-.destinations-subtext{
-    font-size: 1.48rem;
+.place-text{
+    font-size: 5.2rem;
     font-weight: 350;
-    word-spacing: 1.6px;
-    color: var(--side-info);
+    margin-left: -0.4rem;
+    margin-bottom: 1.1rem;
 }
 
-/* Destination section ending */
+.place-info{
+    font-size: 3.73rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    line-height: 5.64rem;
+    padding: 5rem 4.45rem 3.4rem;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.weather-text{
+    color: var(--black);
+    font-size: 4.25rem;
+    font-weight: 350;
+    margin-top: 0.9rem;
+}
+
+.place-details{
+    width: 86.9%;
+    margin: auto;
+}
+
+.description-text-wrapper{
+    margin: 6.7rem 0;
+}
+
+.description-text{
+    color: var(--black);
+    font-size: 2.311rem;
+    font-weight: 350;
+    line-height: 3.1rem;
+    text-align: justify;
+    margin-bottom: 3.05rem;
+}
