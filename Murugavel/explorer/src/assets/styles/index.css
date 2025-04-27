@@ -5,9 +5,8 @@
     --secondary-color: #ffffff;
     --side-info: #9a4f7e;
     --black: #000;
-    --dropdown-header: #8b8b8b;
-    --dropdown-text: #444;
-    --dropdown-list-border: #ccc;
+    --input-text: #8b8b8b;
+    --form-container-background: #f7f7f7;
 }
 
 /* Resetting default styles */
@@ -30,10 +29,29 @@ img{
     width: 100%;
 }
 
-input, .dropdown{
+input, select{
+    position: relative;
     width: 44.1rem;
+    height: 4.57rem;
+    padding: 0 2.05rem;
+    outline: none;
+    font-size: 1.3rem;
+    display: block;
+    color: var(--input-text);
 }
 
 select{
     font-size: 1.1rem;
+    /* For removing the default arrow icon */
+    appearance: none;        
+    -webkit-appearance: none; 
+    -moz-appearance: none;    
+}
+
+/* Removal of spinner in number fields */
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

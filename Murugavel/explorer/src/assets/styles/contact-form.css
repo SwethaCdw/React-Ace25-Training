@@ -1,0 +1,44 @@
+.contact-section-wrapper{
+    background-color: var(--form-container-background);
+    height: 56.7rem;
+    /* display: grid;
+    place-items: center; */
+}
+
+.form-container{
+    width: max-content;
+    /* margin-top: -0.5rem; */
+    margin: auto;
+    padding-left: 0.3rem;
+    padding-top: 5.4rem;
+}
+
+.contact-form input, .contact-form select{
+    background: none;
+    border: 1px solid var(--input-text);
+}
+
+.contact-form-header{
+    font-size: 3rem;
+    font-weight: 450;
+}
+
+.contact-form-text{
+    font-size: 1.5rem;
+    color: var(--side-info);
+    font-weight: 350;
+    margin: 0.15rem 0 2.46rem;
+}
+
+.label-text{
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 450;
+    margin: 2.1rem 0 0.35rem;
+    color: var(--black);
+}
+
+.contact-form > button{
+    margin-top: 1.8rem;
+    padding: 0 2.35rem;
+}

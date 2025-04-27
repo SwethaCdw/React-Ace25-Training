@@ -4,16 +4,18 @@ import DropDown from "../components/DropDown";
 import CardContainer from "../containers/CardContainer";
 import Card from "../components/Card";
 import Button from "../components/Button";
+import ContactForm from "../components/ContactForm";
 import '../assets/styles/details-page.css';
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const DetailsPage = () => {
     const [data, setData] = useState([]);
-    const [place, setPlace] = useState('');
+    // Create ref's
+    const placeRef = useRef('');
     useEffect(() => {
         fetch('./src/assets/data/places.json')
-            .then(response => response.json()) // Parse JSON
-            .then(data => setData(data)) // Work with JSON data
+            .then(response => response.json())
+            .then(data => setData(data))
             .catch(error => console.error('Error fetching JSON:', error));
     }, []);
     return (
@@ -29,7 +31,7 @@ const DetailsPage = () => {
                     <h2 className="info-text">Your Adventure Travel Expert in the <span className="extra-bold">SOUTH</span></h2>
                 </div>
                 <div className="place-input-container">
-                    <DropDown placeData={data} setPlace={setPlace} />
+                    <DropDown placeData={data} dropDownRef={placeRef} inputID={'place'} />
                     <Button>EXPLORE</Button>
                 </div>  
                 <section className="destinations">
@@ -41,6 +43,7 @@ const DetailsPage = () => {
                         )}
                     </CardContainer>
                 </section>
+                <ContactForm placeData={data} />
             </main>
         </>
     )

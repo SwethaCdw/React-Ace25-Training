@@ -30,6 +30,10 @@
     padding-left: 9.3rem;
 }
 
+.place-input-container > button{
+    padding: 0 2.4rem;
+}
+
 /* Travels section ending */
 
 /* Destination section beginning */
