@@ -7,22 +7,14 @@ import LeftInfoContainer from "../containers/LeftInfoContainer";
 import Card from "../components/Card";
 import Button from "../components/Button";
 import ContactForm from "../components/ContactForm";
-import { useEffect, useRef, useState } from "react";
+import {useState} from "react";
 import { Link } from "react-router-dom";
 import '../assets/styles/home-page.css';
 
-const HomePage = () => {
-    const [data, setData] = useState([]);
-    // Create ref's
+const HomePage = ({placeData}) => {
     const [place, setPlace] = useState('');
     const [source, setSource] = useState('');
     const [Destination, setDestination] = useState('');
-    useEffect(() => {
-        fetch('https://nijin-server.vercel.app/api/explorer')
-            .then(response => response.json())
-            .then(data => setData(data))
-            .catch(error => console.error('Error fetching JSON:', error));
-    }, []);
     return (
         <>
             <Header />
@@ -34,7 +26,7 @@ const HomePage = () => {
                         <h2 className="info-text">Your Adventure Travel Expert in the <span className="extra-bold">SOUTH</span></h2>
                     </div>
                     <div className="place-input-container">
-                        <DropDown placeData={data} setValue = {setPlace} inputID={'place'} />
+                        <DropDown placeData={placeData} setValue = {setPlace} inputID={'place'} />
                         <Link to={`/details/${place.toLowerCase()}`}><Button>EXPLORE</Button></Link>
                     </div>  
                 </LeftInfoContainer>
@@ -42,12 +34,12 @@ const HomePage = () => {
                     <h2 className="destinations-header">Destinations</h2>
                     <p className="destinations-subtext">Just for you. Because you and your bike are special to us!</p>
                     <CardContainer>
-                        {data.map((placeData, index) =>
-                            <Card key={index} place={placeData.place} city={placeData.city} shortDescription={placeData.shortDescription} />
+                        {placeData.map((data, index) =>
+                            <Card key={index} place={data.place} city={data.city} shortDescription={data.shortDescription} />
                         )}
                     </CardContainer>
                 </section>
-                <ContactForm placeData={data} />
+                <ContactForm placeData={placeData} />
             </MainContainer>
         </>
     )
