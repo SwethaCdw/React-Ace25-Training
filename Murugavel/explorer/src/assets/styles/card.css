@@ -28,7 +28,7 @@
     line-height: 1.4rem;
 }
 
-.card > button{
+.card button{
     align-self: end;
     justify-self: start;
     padding: 0 1.65rem;

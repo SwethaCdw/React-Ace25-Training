@@ -1,12 +1,12 @@
 import "../assets/styles/dropdown.css";
 
-const DropDown = ({ placeData, dropDownRef, labelText, inputID }) => {
+const DropDown = ({ placeData, setValue, labelText, inputID }) => {
     return (
         <>
             {labelText && <label className="label-text" htmlFor={inputID}>{labelText}</label>}
             <div className="select-wrapper">
-                <select id={inputID} ref={dropDownRef} onChange={(event) => {
-                    dropDownRef.current.value = event.target.value;
+                <select id={inputID} onChange={(event) => {
+                    setValue(event.target.value);
                 }}>
                     <option selected disabled>Choose</option>
                     {placeData.map((data, index) =>

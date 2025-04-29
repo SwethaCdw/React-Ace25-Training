@@ -7,15 +7,18 @@ import LeftInfoContainer from "../containers/LeftInfoContainer";
 import Card from "../components/Card";
 import Button from "../components/Button";
 import ContactForm from "../components/ContactForm";
-import '../assets/styles/home-page.css';
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import '../assets/styles/home-page.css';
 
 const HomePage = () => {
     const [data, setData] = useState([]);
     // Create ref's
-    const placeRef = useRef('');
+    const [place, setPlace] = useState('');
+    const [source, setSource] = useState('');
+    const [Destination, setDestination] = useState('');
     useEffect(() => {
-        fetch('./src/assets/data/places.json')
+        fetch('https://nijin-server.vercel.app/api/explorer')
             .then(response => response.json())
             .then(data => setData(data))
             .catch(error => console.error('Error fetching JSON:', error));
@@ -31,8 +34,8 @@ const HomePage = () => {
                         <h2 className="info-text">Your Adventure Travel Expert in the <span className="extra-bold">SOUTH</span></h2>
                     </div>
                     <div className="place-input-container">
-                        <DropDown placeData={data} dropDownRef={placeRef} inputID={'place'} />
-                        <Button>EXPLORE</Button>
+                        <DropDown placeData={data} setValue = {setPlace} inputID={'place'} />
+                        <Link to={`/details/${place.toLowerCase()}`}><Button>EXPLORE</Button></Link>
                     </div>  
                 </LeftInfoContainer>
                 <section className="destinations">
