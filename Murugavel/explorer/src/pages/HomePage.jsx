@@ -1,3 +1,5 @@
+import {useState} from "react";
+import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import HeroBannerImage from "../components/HeroBannerImage";
 import DropDown from "../components/DropDown";
@@ -7,14 +9,10 @@ import LeftInfoContainer from "../containers/LeftInfoContainer";
 import Card from "../components/Card";
 import Button from "../components/Button";
 import ContactForm from "../components/ContactForm";
-import {useState} from "react";
-import { Link } from "react-router-dom";
 import '../assets/styles/home-page.css';
 
 const HomePage = ({placeData}) => {
     const [place, setPlace] = useState('');
-    const [source, setSource] = useState('');
-    const [Destination, setDestination] = useState('');
     return (
         <>
             <Header />

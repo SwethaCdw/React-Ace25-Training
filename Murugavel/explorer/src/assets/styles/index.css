@@ -7,6 +7,7 @@
     --black: #000;
     --input-text: #8b8b8b;
     --form-container-background: #f7f7f7;
+    --error-text: #ff0000;
 }
 
 /* Resetting default styles */

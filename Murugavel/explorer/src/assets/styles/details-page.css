@@ -1,3 +1,5 @@
+/* Place Details section beginning */
+
 .place-text{
     font-size: 5.2rem;
     font-weight: 350;
@@ -39,3 +41,5 @@
     text-align: justify;
     margin-bottom: 3.05rem;
 }
+
+/* Place Details section ending */

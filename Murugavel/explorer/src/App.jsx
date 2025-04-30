@@ -17,10 +17,11 @@ function App() {
         .catch(error => console.error('Error fetching JSON:', error));
   }, []);
 
-  if (loading) {
+  if (loading) { // if data is still not fetched
     return <Loader />
   }
 
+  // Defining the router
   const router = createBrowserRouter([
     {
       index: true, 

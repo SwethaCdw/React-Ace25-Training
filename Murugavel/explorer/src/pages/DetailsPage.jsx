@@ -1,14 +1,15 @@
+import { useEffect, useState } from "react";
+import { useParams, useLoaderData } from 'react-router-dom'
 import Header from "../components/Header";
+import Card from "../components/Card";
+import ContactForm from "../components/ContactForm";
 import HeroBannerImage from "../components/HeroBannerImage";
 import MainContainer from "../containers/MainContainer";
 import LeftInfoContainer from "../containers/LeftInfoContainer";
 import CardContainer from "../containers/CardContainer";
-import Card from "../components/Card";
-import ContactForm from "../components/ContactForm";
 import '../assets/styles/details-page.css'
-import { useEffect, useState } from "react";
-import { useParams, useLoaderData } from 'react-router-dom'
 
+// Function to fetch the details of the provided placeName from the arguments
 const fetchPlaceData = async (placeName) => {
     const response = await fetch(`https://nijin-server.vercel.app/api/explorer/places/${placeName}`)
     return response.json();
@@ -16,8 +17,9 @@ const fetchPlaceData = async (placeName) => {
 
 const DetailsPage = ({placeData}) => {
     const { placeId } = useParams();
-    const placeDetails = useLoaderData();
-    const [relevantPlace, setRelevantPlace] = useState([]);
+    const placeDetails = useLoaderData(); // contains the data of the current fetched place through loader function
+    const [relevantPlace, setRelevantPlace] = useState([]); // state that denotes array of related places
+    const [temperature, setTemperature] = useState('');
     useEffect(() => {
         const fetchRelevantPlaces = async () => {
             const relevantPlaces = placeDetails.relatedPlaces;
@@ -28,7 +30,15 @@ const DetailsPage = ({placeData}) => {
             );
             setRelevantPlace(resData);
         }
+        const fetchTemperature = async () => {
+            const response = await
+                fetch(`http://api.weatherapi.com/v1/current.json?key=81bedab9266646c2a44100958253004&q=${placeId == 'masinagudi' ? 'ooty' : placeId}`);
+            const data = await response.json();
+            const locationTemperature = data.current.temp_c;
+            setTemperature(locationTemperature);
+        }
         fetchRelevantPlaces();
+        fetchTemperature();
     }, [placeId]);
         
     return (
@@ -39,7 +49,7 @@ const DetailsPage = ({placeData}) => {
                 <LeftInfoContainer style={{top: '21rem', left: '7.1rem', width: '65.65rem'}}>
                     <h1 className="place-text">{placeDetails.city}</h1>
                     <p className="place-info">{placeDetails.place}</p>
-                    <p className="weather-text">32&deg;C</p>
+                    <p className="weather-text">{temperature}&deg;C</p>
                 </LeftInfoContainer>
                 <div className="place-details">
                     <div className="description-text-wrapper">

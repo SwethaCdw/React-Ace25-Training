@@ -8,7 +8,7 @@
   right: 2rem;
   top: 50%;
   transform: translateY(-50%);
-  pointer-events: none; /* so clicking the arrow still opens the dropdown */
+  pointer-events: none; /* clicking the arrow still opens the dropdown */
   color: var(--black);
   font-size: 0.7rem;
 }

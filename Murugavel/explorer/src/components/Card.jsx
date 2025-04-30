@@ -1,6 +1,6 @@
+import { Link } from 'react-router-dom';
 import Button from './Button';
 import '../assets/styles/card.css'
-import { Link } from 'react-router-dom';
 
 const Card = ({place, city, shortDescription}) => {
     return (
@@ -13,7 +13,7 @@ const Card = ({place, city, shortDescription}) => {
             <p className="card-description">
                 {shortDescription}
             </p>
-            <Link to={`/details/${city.toLowerCase()}`}><Button>READ MORE</Button></Link>
+            <Link to={`/details/${city.toLowerCase()}`}><Button>READ MORE</Button></Link> {/* Button to navigate to the details page */}
         </div>
     );
 }
