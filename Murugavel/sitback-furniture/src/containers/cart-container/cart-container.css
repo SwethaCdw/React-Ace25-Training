@@ -1,0 +1,14 @@
+.cart-container{
+    flex: 0.82 1;
+    background-color: var(--cart-background);
+    padding: 2.65rem 2.35rem;
+    overflow-y: scroll;
+}
+
+.cart-text{
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
