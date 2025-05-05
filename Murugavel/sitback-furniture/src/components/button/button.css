@@ -1,8 +1,9 @@
 .button{
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    font-size: 0.8rem;
-    padding: 0.7rem 1.3rem;
+    font-size: 0.78rem;
+    padding: 0.7rem 1.36rem;
+    font-weight: 550;
     border: none;
     border-bottom-right-radius: 6px;
 }

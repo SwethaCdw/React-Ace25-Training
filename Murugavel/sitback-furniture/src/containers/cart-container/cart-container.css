@@ -1,14 +1,39 @@
 .cart-container{
-    flex: 0.82 1;
+    flex: 1 1;
     background-color: var(--cart-background);
-    padding: 2.65rem 2.35rem;
-    overflow-y: scroll;
+    padding-top: 2.65rem;
 }
 
 .cart-text{
     display: inline-block;
-    font-size: 1.1rem;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 450;
+    margin: 0 2.35rem;
     padding-bottom: 0.3rem;
     border-bottom: 2px solid var(--secondary-color);
+}
+
+.cart-item-list{
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 17.6rem);
+    overflow-y: scroll;
+    row-gap: 2rem;
+    margin: 1.7rem 2.35rem;
+    padding-right: 0.2rem;
+}
+
+.amount-banner{
+    height: 5.2rem;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.2rem;
+    box-shadow: 0px 2px 7px 0px var(--shadow);
+}
+
+.amount-text{
+    font-size: 0.75rem;
+    font-weight: 350;
 }

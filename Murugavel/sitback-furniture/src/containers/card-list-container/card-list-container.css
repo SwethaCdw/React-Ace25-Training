@@ -1,8 +1,7 @@
 .card-list{
     display: flex;
-    height: calc(100vh - 8.25rem);
+    height: calc(100vh - 9.25rem);
     flex: 2.88 1;
-    /* height: 49.6rem; */
     overflow-y: scroll;
     gap: 2.5rem 2.42rem;
     flex-wrap: wrap;

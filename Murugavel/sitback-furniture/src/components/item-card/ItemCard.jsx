@@ -1,12 +1,23 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import './item-card.css'
 import Button from '../button/Button';
+import { useCartContext } from '../../context/CartContext';
 
 const ItemCard = ({ cardData }) => {
-    const { name, photo, guarantee, price, description } = cardData;
+    const { id, name, photo, guarantee, price, description } = cardData;
+    const { setCartData } = useCartContext();
     const handleClick = useCallback(((event) => {
-
-    }), [name, photo, guarantee, price, description]);
+        setCartData((prevCart) => {
+            const itemIndex = prevCart.cartItems.findIndex((cartItem) => cartItem.id == id);
+            if (itemIndex == -1) {
+                return {
+                    cartItems: [...prevCart.cartItems, { id, name, photo, price, quantity: 1 }],
+                    totalAmount: parseFloat(prevCart.totalAmount) + parseFloat(price)
+                };
+            }
+            return {...prevCart};
+        })
+    }), [id, name, photo, price]);
     return (
         <div className="itemCard">
             <div className="itemCard-image-wrapper">
@@ -24,7 +35,7 @@ const ItemCard = ({ cardData }) => {
                 <p className="guarantee-text">{guarantee} YEAR{guarantee > 1 && 'S'} GUARANTEE</p>
             </div>
             <hr className='divider' />
-            <Button>ADD TO CART</Button>
+            <Button handleClick={handleClick}>ADD TO CART</Button>
         </div>
     )
 }

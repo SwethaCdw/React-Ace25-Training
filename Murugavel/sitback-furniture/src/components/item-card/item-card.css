@@ -16,18 +16,20 @@
     display: flex;
     justify-content: space-between;
     margin-top: 0.85rem;
+    font-size: 0.92rem;
     font-weight: 550;
 }
 
 .product-description{
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    font-weight: 300;
     margin: 0.44rem 0 0.82rem;
     line-height: 1.21rem;
 }
 
 .guarantee-details{
     display: flex;
-    column-gap: 0.2rem;
+    column-gap: 0.18rem;
 }
 
 .shield-check-wrapper{
@@ -36,7 +38,7 @@
 }
 
 .guarantee-text{
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 550;
     color: var(--guarantee-text);
 }
