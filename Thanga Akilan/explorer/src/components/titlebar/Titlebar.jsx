@@ -1,18 +1,18 @@
 import React from "react"
 import logo from "../../assets/logo.png"
-import './Titlebar.css'
+import styles from './Titlebar.module.css'
 
 const TitleBar = () => {
     return(
-        <header className="title-bar-section">
-            <div className="title-logo-wrapper">
+        <header className={styles.title_bar_section}>
+            <div className={styles.title_logo_wrapper}>
                 <img src={logo} alt="Logo" />
             </div>
-            <nav className="title-menu-nav">
+            <nav className={styles.title_menu_nav}>
                 <ul>
-                    <li><a>Hotels</a></li>
-                    <li><a>Bike Rentals</a></li>
-                    <li><a>Restaurants</a></li>
+                    <li className={styles.nav_element}><a>Hotels</a></li>
+                    <li className={styles.nav_element}><a>Bike Rentals</a></li>
+                    <li className={styles.nav_element}><a>Restaurants</a></li>
                 </ul>
             </nav>
         </header>

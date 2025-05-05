@@ -1,0 +1,33 @@
+@value primary-color: #7a1655;
+
+.contact_form_section{
+    background-color: #F7f7f7;
+    width: 100%;
+    padding: 5% 30%;
+}
+
+.contact_form_heading{
+    font-size: 3rem;
+    font-weight: 500;
+    color:  primary-color;
+}
+
+.contact_form_subheading{
+    font-size: 1.15rem;
+    color:  primary-color;
+}
+
+.input_element{
+    width: 41vw;
+    font-size: 1.25rem;
+    padding: 1.5rem 2rem;
+}
+
+
+.contact_form_submit{
+    padding: 0.75rem 2rem;
+    background-color: primary-color;
+    color: #FFF;
+    border: none;
+    font-size: 1.05rem;
+}

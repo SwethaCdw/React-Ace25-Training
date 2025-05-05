@@ -1,26 +1,27 @@
 import InputField from "../inputField/InputField"
 import SelectElement from "../selectElement/SelectElement"
+import styles from './ContactForm.module.css'
 
-import "./ContactForm.css"
 
-const ContactForm = () => {
+const ContactForm = ({placeData}) => {
     return(
-        <section className="contact-form-section">
-            <h3>Contact Us</h3>
-            <p>Out Sales Team will reach out to you ASAP!</p>
+        <section className={styles.contact_form_section}>
+            <h3 className={styles.contact_form_heading}>Contact Us</h3>
+            <p className={styles.contact_form_subheading}>Out Sales Team will reach out to you ASAP!</p>
             <form>
                 <InputField labelName={"Name"} >
-                    <input className="input-element" type="text" />
+                    <input className={styles.input_element} type="text" />
                 </InputField> 
                 <InputField labelName={"Your Home Town"} >
-                <SelectElement name={"from"}/>
+                <SelectElement placeData={placeData} name={"from"}/>
                 </InputField> 
                 <InputField labelName={"Where would you like to go?"} >
-                    <SelectElement  name={"to"}/>
+                    <SelectElement placeData={placeData}  name={"to"}/>
                 </InputField> 
                  <InputField labelName={"Contact Number"} >
-                    <input className="input-element" type="text" />
+                    <input className={styles.input_element} type="text" />
                 </InputField> 
+                <button className={styles.contact_form_submit}>SUBMIT INTEREST</button>
             </form>
         </section>
     )

@@ -1,18 +1,14 @@
+import { useEffect } from "react"
+import styles from './SelectElement.module.css'
 
-
-let places = [ {name: "Pollachi"},{name: "Thanjavur"},{name: "Chidambaram"},{name: "Masinagudi"},{name: "Kumbakkonam"},{name: "Tirunelveli"}]
-
-
-
-const SelectElement = ({name }) => {
-
+const SelectElement = ({placeData}) => {
 
     return(
-        <select className="input-element" name={name} id={`${name}-select`}>
-            <option hidden>choose</option>
-            {places.forEach((place)=>{
-                <option value={place.name}>{place.name}</option>
-            })}
+        <select className={styles.input_element} >
+            <option hidden>Choose</option>
+            {Array.isArray(placeData) && placeData.map((place)=>
+                (<option value={place.city}>{place.city}</option>)
+            )}
         </select>
     )
 }

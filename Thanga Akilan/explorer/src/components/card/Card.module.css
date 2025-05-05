@@ -1,0 +1,35 @@
+
+.card{
+    width: 31.9%;
+}
+
+.image_wrapper{
+    width: 100%;
+}
+
+.image_wrapper img{
+    width: 100%;
+}
+
+.card_heading{
+    font-weight: 200;
+    font-size: 2.45rem;
+}
+
+.card_subheading{
+    font-weight: 700;
+    margin-top: 0.35rem;
+}
+
+.card_description{
+    margin-top: 2rem;
+}
+
+.card_button{
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #7a1655;
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+}

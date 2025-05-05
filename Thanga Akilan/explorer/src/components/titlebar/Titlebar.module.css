@@ -1,6 +1,6 @@
 
 
-.title-bar-section{
+.title_bar_section{
     color: #7A1655;
     font-weight: 500;
     display: flex;
@@ -11,18 +11,22 @@
     height: 6.75rem;
 }
 
-.title-logo-wrapper{
+.title-logo_wrapper{
     width: 9rem;
 }
 
-.title-logo-wrapper > img{
+.title_logo_wrapper > img{
     height: 100%;
     width: 100%;
 }
 
-.title-menu-nav>ul{
+.title_menu_nav>ul{
     display: flex;
     column-gap: 5rem;
     list-style-type: none;
+}
+
+.nav_element{
+    cursor: pointer;
 }
 

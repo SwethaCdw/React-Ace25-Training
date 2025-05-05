@@ -1,16 +1,25 @@
-import "./Card.css";
+import { useNavigate } from "react-router";
+import styles from "./Card.module.css";
 
 
-const Card = () => {
+const Card = ({place,city,description}) => {
+    const navigate = useNavigate();
+
+    const handleClick = ()=>{
+        navigate(`/details/${city}`)
+    }
+    
+
     return(
-        <div className="card">
-            <div className="image-wrapper">
-                <img src="" alt="" />
+        <div className={styles.card}>
+            <div className={styles.image_wrapper}>
+                <img src={`../src/assets/images/${city}.png`} alt={city} />
             </div>
-            <div className="card-content">
-                <h3>heading</h3>
-                <p>paara1</p>
-                <p>para 2</p>
+            <div className={styles.card_content}>
+                <h4 className={styles.card_heading}>{place}</h4>
+                <p className={styles.card_subheading}>{city}</p>
+                <p className={styles.card_description}>{description}</p>
+                <button className={styles.card_button} onClick={handleClick}>READ MORE</button>
             </div>
         </div>
     )

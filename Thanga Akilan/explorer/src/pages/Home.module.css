@@ -1,0 +1,84 @@
+@value primary-color: #7A1655;
+
+main{
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* Pormo Section */
+
+.promo_section{
+    display: flex;
+    padding-left: 8.5%;
+}
+
+.promo_section_content{
+    max-width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.promo_heading{
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: primary-color;
+}
+
+.promo_subheading{
+    color: primary-color;
+    font-size: 5rem;
+    font-weight: 200;
+    line-height: 5.75rem;
+    margin-top: 2rem;
+
+}
+
+.promo_subheading span{
+    font-weight: 500;
+}
+
+
+.explore_button{
+    margin: 1.5rem 0 3rem;
+    padding: 0.95rem 2.5rem;
+    width: max-content;
+    background-color: primary-color;
+    font-size: 1.05rem;
+    letter-spacing: 1px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Destinations Section */
+
+.destinations_section{
+    width: 100%;
+    padding: 0 6.5% 1%;
+    margin-top: 6.25rem;
+}
+
+
+
+.destinations_section_heading{
+    color: primary-color;
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.destinations_section_subheading{
+    color: primary-color;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.destinations_container{
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
