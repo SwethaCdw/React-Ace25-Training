@@ -2,6 +2,9 @@ import { createBrowserRouter, redirect, RouterProvider } from "react-router-dom"
 import HomeScreen from "./screens/HomeScreen/HomeScreen"
 import RootLayout from "./layouts/RootLayout"
 import CartContextProvider from "./context/CartContext"
+import LoginScreen from "./screens/LoginScreen/LoginScreen"
+import UserContextProvider from "./context/UserContext"
+import PremiumScreen from "./screens/PremiumScreen/PremiumScreen"
 
 function App() {
   const router = createBrowserRouter([
@@ -16,15 +19,29 @@ function App() {
         {
           path: 'categories/:categoryId',
           element: <HomeScreen />
+        },
+        {
+          path: 'premium',
+          element: <PremiumScreen />
         }
       ]
+    },
+    {
+      path: '/login',
+      element: <LoginScreen />
+    },
+    {
+      path: '*',
+      element: <RootLayout />
     }
   ])
   return (
     <>
-      <CartContextProvider>
-        <RouterProvider router={router} />
-      </CartContextProvider>
+      <UserContextProvider>
+        <CartContextProvider>
+          <RouterProvider router={router} />
+        </CartContextProvider>
+      </UserContextProvider>
     </>
   )
 }
