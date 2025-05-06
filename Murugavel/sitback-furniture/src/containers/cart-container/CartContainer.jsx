@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import CartItemCard from '../../components/cart-item-card/CartItemCard';
 import { useCartContext } from '../../context/CartContext';
 import './cart-container.css'
@@ -12,6 +11,11 @@ const CartContainer = () => {
     const handleClick = () => {
         navigate('/confirmOrder');
     }
+
+    if (cartData.cartItems.length === 0) {
+        return null;
+    }
+
     return (
         <div className="cart-container">
             <h2 className="cart-text">MY CART</h2>

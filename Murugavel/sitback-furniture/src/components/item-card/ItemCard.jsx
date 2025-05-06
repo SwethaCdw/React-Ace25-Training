@@ -1,7 +1,7 @@
-import { useCallback, useEffect } from 'react';
-import './item-card.css'
-import Button from '../button/Button';
+import { useCallback } from 'react';
 import { useCartContext } from '../../context/CartContext';
+import Button from '../button/Button';
+import './item-card.css'
 
 const ItemCard = ({ cardData }) => {
     const { id, name, photo, guarantee, price, description } = cardData;

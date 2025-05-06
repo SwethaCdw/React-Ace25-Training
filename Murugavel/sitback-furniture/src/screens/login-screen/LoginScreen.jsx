@@ -1,19 +1,32 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../context/UserContext';
 import Button from '../../components/button/Button';
 import './login-screen.css'
-import { useUserContext } from '../../context/UserContext';
-import { useNavigate } from 'react-router-dom';
 
-const nameRegex = /[0-9]|[\W]k/;
+const nameRegex = /[0-9]|[\W]/;
+
+const findUser = async (userName, password) => {
+    const response = await fetch('./src/assets/data/users.json');
+    const data = await response.json();
+    const userIndex = data.findIndex((user) => user.username == userName && user.password == password);
+    return userIndex != -1;
+}
 
 const LoginScreen = () => {
     const [userInfo, setUserInfo] = useState({ userName: '', password: '' });
     const [errorText, setErrorText] = useState({ userNameText: '', passwordText: '' });
     const { setUser } = useUserContext();
     const navigate = useNavigate();
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         if (!errorText.userNameText && !errorText.userNameText && userInfo.userName && userInfo.password) {
+            const isUserValid = await findUser(userInfo.userName, userInfo.password);
+            if (!isUserValid) {
+                setErrorText((prevErr) => ({ ...prevErr, passwordText: 'Invalid username / password' }));
+                setUserInfo((prevInfo) => ({ ...prevInfo, password: '' }));
+                return;
+            }
             setUser(userInfo.userName);
             setUserInfo({ userName: '', password: '' });
             navigate('/');
@@ -24,8 +37,8 @@ const LoginScreen = () => {
         const inputValue = event.target.value;
         if (nameRegex.test(inputValue)) {
             setErrorText((prevErr) => ({ ...prevErr, userNameText: 'Name cannot contain numbers or special characters' }));
-        } else if (inputValue.length < 8) {
-            setErrorText((prevErr) => ({ ...prevErr, userNameText: 'Name should contain minimum 8 characters' }));
+        } else if (inputValue.length < 5) {
+            setErrorText((prevErr) => ({ ...prevErr, userNameText: 'Name should contain minimum 5 characters' }));
         } else {
             setErrorText((prevErr) => ({ ...prevErr, userNameText: '' }));
         }
@@ -33,6 +46,12 @@ const LoginScreen = () => {
     }
 
     const handlePasswordChange = (event) => {
+        const inputValue = event.target.value;
+        if (inputValue.length < 6) {
+            setErrorText((prevErr) => ({ ...prevErr, passwordText: 'Password should contain minimum 6 characters' }));
+        } else {
+            setErrorText((prevErr) => ({ ...prevErr, passwordText: '' }));
+        }
         setUserInfo((prevInfo) => ({ ...prevInfo, password: event.target.value }));
     }
 
