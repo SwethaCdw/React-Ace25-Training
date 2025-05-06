@@ -3,9 +3,15 @@ import CartItemCard from '../../components/cart-item-card/CartItemCard';
 import { useCartContext } from '../../context/CartContext';
 import './cart-container.css'
 import Button from '../../components/button/Button';
+import { useNavigate } from 'react-router-dom';
 
 const CartContainer = () => {
-    const {cartData} = useCartContext();
+    const { cartData } = useCartContext();
+    const navigate = useNavigate();
+    
+    const handleClick = () => {
+        navigate('/confirmOrder');
+    }
     return (
         <div className="cart-container">
             <h2 className="cart-text">MY CART</h2>
@@ -17,7 +23,7 @@ const CartContainer = () => {
                     <p className='amount-text'>TOTAL AMOUNT</p>
                     <p><span className="rupee">₹ </span> {cartData.totalAmount}</p>
                 </div>
-                <Button>PLACE ORDER</Button>
+                <Button handleClick={handleClick}>PLACE ORDER</Button>
             </div>
         </div>
     )

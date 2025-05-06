@@ -6,12 +6,12 @@ import { useCartContext } from '../../context/CartContext';
 const ItemCard = ({ cardData }) => {
     const { id, name, photo, guarantee, price, description } = cardData;
     const { setCartData } = useCartContext();
-    const handleClick = useCallback(((event) => {
+    const handleClick = useCallback((() => {
         setCartData((prevCart) => {
             const itemIndex = prevCart.cartItems.findIndex((cartItem) => cartItem.id == id);
             if (itemIndex == -1) {
                 return {
-                    cartItems: [...prevCart.cartItems, { id, name, photo, price, quantity: 1 }],
+                    cartItems: [...prevCart.cartItems, { id, name, photo, price, description, quantity: 1 }],
                     totalAmount: parseFloat(prevCart.totalAmount) + parseFloat(price)
                 };
             }

@@ -1,0 +1,27 @@
+.premium-couch-wrapper{
+    height: 49.4rem;
+    width: 78.9rem;
+    position: relative;
+    background: url('../src/assets/images/premium-couch.jpg') no-repeat;
+    background-size: cover;
+    margin-left: 14.2rem;
+    margin-top: 2.35rem;
+}
+
+.details-text-wrapper{
+    padding-left: 7rem;
+    position: absolute;
+    bottom: 3.15rem;
+    color: var(--primary-color);
+}
+
+.details-text{
+    font-size: 4.56rem;
+    font-weight: 550;
+    line-height: 5.5rem;
+}
+
+.announcement-text{
+    text-align: center;
+    font-size: 5.2rem;
+}

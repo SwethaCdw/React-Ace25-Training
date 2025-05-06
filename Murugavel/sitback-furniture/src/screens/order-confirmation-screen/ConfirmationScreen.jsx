@@ -1,0 +1,30 @@
+import { useNavigate } from 'react-router-dom';
+import { useCartContext } from '../../context/CartContext';
+import { useUserContext } from '../../context/UserContext';
+import Button from '../../components/button/Button';
+import OrderCard from '../../components/order-card/OrderCard';
+import './confirmation-screen.css'
+
+const ConfirmationScreen = () => {
+    const { user } = useUserContext();
+    const { cartData, setCartData } = useCartContext();
+    const navigate = useNavigate();
+    const handleClick = () => {
+        setCartData({ cartItems: [], totalAmount: 0 });
+        navigate('/');
+    }
+    return (
+        <section className="order-confirmation-wrapper">
+            <h2 className="confirmation-header">Order Confirmation</h2>
+            <p className="confirmation-text">
+                Thank you{user && <span> {user}</span>}, for shopping with us. The items will be delivered within 7 days.
+            </p>
+            <div className="order-list">
+                {cartData.cartItems.map((productData, index) => <OrderCard key={index} productData={productData} />)}
+            </div>
+            <Button handleClick={handleClick}>Return Home</Button>
+        </section>
+    )
+}
+
+export default ConfirmationScreen;

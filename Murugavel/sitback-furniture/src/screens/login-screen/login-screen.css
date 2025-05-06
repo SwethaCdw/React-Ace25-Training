@@ -7,11 +7,10 @@
 
 .login-container{
     width: 34.7rem;
-    height: 34.3rem;
     position: absolute;
     top: 10.4rem;
     right: 6.6rem;
-    padding: 3.5rem 2.7rem;
+    padding: 3.5rem 2.7rem 3.2rem;
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 15px;
     color: var(--primary-color);
@@ -53,6 +52,10 @@
     font-size: 1.2rem;
     padding: 0 1rem;
     border: 1px solid var(--primary-color);
+}
+
+.error-text{
+    color: var(--error-text);
 }
 
 .login-form > button{

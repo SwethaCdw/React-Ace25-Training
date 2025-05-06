@@ -5,6 +5,7 @@
   --guarantee-text: #008800;
   --shadow: #dbdbdb;
   --divider: rgba(219, 219, 219, 0.5);
+  --error-text: #ff0000;
 }
 
 /* Resetting default browser styles */

@@ -1,0 +1,23 @@
+.order-confirmation-wrapper{
+    width: 81.4%;
+    margin: 4.2rem auto 2rem;
+    height: calc(100vh - 10.2rem);
+    overflow-y: scroll;
+}
+
+.confirmation-header{
+    font-size: 1.24rem;
+    font-weight: 450;
+}
+
+.confirmation-text{
+    margin-top: 0.65rem;
+    font-size: 1.045rem;
+}
+
+.order-list{
+    margin: 1.3rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem 2.42rem;
+}
