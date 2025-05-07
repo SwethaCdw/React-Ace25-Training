@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../context/UserContext';
 import Button from '../../components/button/Button';
@@ -18,7 +18,7 @@ const LoginScreen = () => {
     const [errorText, setErrorText] = useState({ userNameText: '', passwordText: '' });
     const { setUser } = useUserContext();
     const navigate = useNavigate();
-    const handleSubmit = async (event) => {
+    const handleSubmit = useCallback(async (event) => {
         event.preventDefault();
         if (!errorText.userNameText && !errorText.userNameText && userInfo.userName && userInfo.password) {
             const isUserValid = await findUser(userInfo.userName, userInfo.password);
@@ -31,9 +31,9 @@ const LoginScreen = () => {
             setUserInfo({ userName: '', password: '' });
             navigate('/');
         }
-    }
+    }, [userInfo]);
 
-    const handleNameChange = (event) => {
+    const handleNameChange = useCallback((event) => {
         const inputValue = event.target.value;
         if (nameRegex.test(inputValue)) {
             setErrorText((prevErr) => ({ ...prevErr, userNameText: 'Name cannot contain numbers or special characters' }));
@@ -43,9 +43,9 @@ const LoginScreen = () => {
             setErrorText((prevErr) => ({ ...prevErr, userNameText: '' }));
         }
         setUserInfo((prevInfo) => ({ ...prevInfo, userName: inputValue }));
-    }
+    }, [userInfo.userName]);
 
-    const handlePasswordChange = (event) => {
+    const handlePasswordChange = useCallback((event) => {
         const inputValue = event.target.value;
         if (inputValue.length < 6) {
             setErrorText((prevErr) => ({ ...prevErr, passwordText: 'Password should contain minimum 6 characters' }));
@@ -53,7 +53,7 @@ const LoginScreen = () => {
             setErrorText((prevErr) => ({ ...prevErr, passwordText: '' }));
         }
         setUserInfo((prevInfo) => ({ ...prevInfo, password: event.target.value }));
-    }
+    }, [userInfo.password]);
 
     return (
         <div className='login-screen'>

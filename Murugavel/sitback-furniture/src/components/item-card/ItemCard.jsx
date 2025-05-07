@@ -1,11 +1,12 @@
-import { useCallback } from 'react';
-import { useCartContext } from '../../context/CartContext';
+import { memo, useCallback } from 'react';
+import { useCartDispatchContext } from '../../context/CartContext';
+import equals from 'fast-deep-equal';
 import Button from '../button/Button';
 import './item-card.css'
 
 const ItemCard = ({ cardData }) => {
     const { id, name, photo, guarantee, price, description } = cardData;
-    const { setCartData } = useCartContext();
+    const setCartData = useCartDispatchContext();
     const handleClick = useCallback((() => {
         setCartData((prevCart) => {
             const itemIndex = prevCart.cartItems.findIndex((cartItem) => cartItem.id == id);
@@ -40,4 +41,4 @@ const ItemCard = ({ cardData }) => {
     )
 }
 
-export default ItemCard;
+export default memo(ItemCard, (prevProps, nextProps) => equals(prevProps.cardData, nextProps.cardData));

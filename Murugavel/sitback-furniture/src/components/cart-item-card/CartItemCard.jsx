@@ -1,9 +1,9 @@
 import { useCallback } from 'react';
-import { useCartContext } from '../../context/CartContext';
+import { useCartDispatchContext } from '../../context/CartContext';
 import './cart-item-card.css'
 
 const CartItemCard = ({ productData }) => {
-    const { setCartData } = useCartContext();
+    const setCartData = useCartDispatchContext();
     const { id, name, photo, quantity, price } = productData;
 
     const handleIncrement = useCallback(() => {

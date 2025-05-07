@@ -1,11 +1,11 @@
 import CartItemCard from '../../components/cart-item-card/CartItemCard';
-import { useCartContext } from '../../context/CartContext';
+import { useCartStateContext } from '../../context/CartContext';
 import './cart-container.css'
 import Button from '../../components/button/Button';
 import { useNavigate } from 'react-router-dom';
 
 const CartContainer = () => {
-    const { cartData } = useCartContext();
+    const cartData = useCartStateContext();
     const navigate = useNavigate();
     
     const handleClick = () => {

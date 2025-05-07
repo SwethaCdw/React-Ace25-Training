@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useCartContext } from '../../context/CartContext';
+import { useCartStateContext, useCartDispatchContext } from '../../context/CartContext';
 import { useUserContext } from '../../context/UserContext';
 import Button from '../../components/button/Button';
 import OrderCard from '../../components/order-card/OrderCard';
@@ -7,7 +7,8 @@ import './confirmation-screen.css'
 
 const ConfirmationScreen = () => {
     const { user } = useUserContext();
-    const { cartData, setCartData } = useCartContext();
+    const cartData = useCartStateContext();
+    const setCartData = useCartDispatchContext();
     const navigate = useNavigate();
     const handleClick = () => {
         setCartData({ cartItems: [], totalAmount: 0 });
