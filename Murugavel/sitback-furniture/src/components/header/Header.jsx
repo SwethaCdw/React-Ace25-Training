@@ -6,7 +6,7 @@ const Header = () => {
     const { user } = useUserContext();
     return (
         <header className="header">
-            <h1 className="logo-text">SITBACK</h1>
+            <Link to='/'><h1 className="logo-text">SITBACK</h1></Link>
             <nav>
                 <ul className="nav-list">
                     <li className="nav-link">
