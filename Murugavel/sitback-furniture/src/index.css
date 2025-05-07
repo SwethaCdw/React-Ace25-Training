@@ -6,6 +6,7 @@
   --shadow: #dbdbdb;
   --divider: rgba(219, 219, 219, 0.5);
   --error-text: #ff0000;
+  --loader: #1ccca8;
 }
 
 /* Resetting default browser styles */

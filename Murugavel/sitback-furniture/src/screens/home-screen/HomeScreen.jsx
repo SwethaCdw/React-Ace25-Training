@@ -1,7 +1,7 @@
 import {useParams} from 'react-router-dom'
-import { useEffect, useState } from 'react';
+import {useEffect, useState } from 'react';
 import CardListContainer from '../../containers/card-list-container/CardListContainer';
-import CartContainer from '../../containers/cart-container/CartContainer';
+import CartContainer from '../../containers/cart-container/CartContainer'
 import './home-screen.css'
 
 const HomeScreen = () => {
