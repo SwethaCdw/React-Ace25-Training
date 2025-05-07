@@ -24,7 +24,7 @@ const HomePage = ({placeData}) => {
                         <h2 className="info-text">Your Adventure Travel Expert in the <span className="extra-bold">SOUTH</span></h2>
                     </div>
                     <div className="place-input-container">
-                        <DropDown placeData={placeData} setValue = {setPlace} inputID={'place'} />
+                        <DropDown placeData={placeData} selectedValue={place} setValue = {setPlace} inputID={'place'} />
                         <Link to={`/details/${place.toLowerCase()}`}><Button>EXPLORE</Button></Link>
                     </div>  
                 </LeftInfoContainer>
