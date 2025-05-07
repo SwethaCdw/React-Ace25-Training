@@ -6,6 +6,7 @@ import './login-screen.css'
 
 const nameRegex = /[0-9]|[\W]/;
 
+// Function that returns if a user with the userName and password exists in the users json
 const findUser = async (userName, password) => {
     const response = await fetch('./src/assets/data/users.json');
     const data = await response.json();
@@ -18,24 +19,27 @@ const LoginScreen = () => {
     const [errorText, setErrorText] = useState({ userNameText: '', passwordText: '' });
     const { setUser } = useUserContext();
     const navigate = useNavigate();
+
     const handleSubmit = useCallback(async (event) => {
-        event.preventDefault();
+        event.preventDefault(); // preventing page reloading
+        // If no errors are present and the input fields are valid
         if (!errorText.userNameText && !errorText.userNameText && userInfo.userName && userInfo.password) {
+            // Check for the input user from the users json
             const isUserValid = await findUser(userInfo.userName, userInfo.password);
             if (!isUserValid) {
                 setErrorText((prevErr) => ({ ...prevErr, passwordText: 'Invalid username / password' }));
-                setUserInfo((prevInfo) => ({ ...prevInfo, password: '' }));
+                setUserInfo((prevInfo) => ({ ...prevInfo, password: '' })); // resetting value of password
                 return;
             }
             setUser(userInfo.userName);
-            setUserInfo({ userName: '', password: '' });
-            navigate('/');
+            setUserInfo({ userName: '', password: '' }); // clearing input fields
+            navigate('/'); // routing back to home page
         }
     }, [userInfo]);
 
     const handleNameChange = useCallback((event) => {
         const inputValue = event.target.value;
-        if (nameRegex.test(inputValue)) {
+        if (nameRegex.test(inputValue)) { // checking if the input value passes the regex which checks for invalid format
             setErrorText((prevErr) => ({ ...prevErr, userNameText: 'Name cannot contain numbers or special characters' }));
         } else if (inputValue.length < 5) {
             setErrorText((prevErr) => ({ ...prevErr, userNameText: 'Name should contain minimum 5 characters' }));

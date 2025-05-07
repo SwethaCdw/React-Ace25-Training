@@ -17,7 +17,7 @@ const CartItemCard = ({ productData }) => {
         setCartData((prevCart) => {
             const updatedCart = prevCart.cartItems
                 .map((prod) => prod.id == id ? { ...prod, quantity: prod.quantity - 1 } : prod)
-                .filter((prod) => prod.quantity > 0);
+                .filter((prod) => prod.quantity > 0); // removing from the list if the quantity falls to 0
             return { cartItems: updatedCart, totalAmount: parseFloat(prevCart.totalAmount) - parseFloat(price) };
         });
     }, [id, price]);

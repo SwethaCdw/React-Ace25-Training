@@ -7,18 +7,20 @@ import './item-card.css'
 const ItemCard = ({ cardData }) => {
     const { id, name, photo, guarantee, price, description } = cardData;
     const setCartData = useCartDispatchContext();
+    
     const handleClick = useCallback((() => {
         setCartData((prevCart) => {
             const itemIndex = prevCart.cartItems.findIndex((cartItem) => cartItem.id == id);
-            if (itemIndex == -1) {
+            if (itemIndex == -1) { // if item is not already present in the cart items
                 return {
                     cartItems: [...prevCart.cartItems, { id, name, photo, price, description, quantity: 1 }],
                     totalAmount: parseFloat(prevCart.totalAmount) + parseFloat(price)
                 };
             }
-            return {...prevCart};
+            return {...prevCart}; // returning new reference of previous cart when the item is already present in the list
         })
     }), [id, name, photo, price]);
+
     return (
         <div className="itemCard">
             <div className="itemCard-image-wrapper">
@@ -41,4 +43,4 @@ const ItemCard = ({ cardData }) => {
     )
 }
 
-export default memo(ItemCard, (prevProps, nextProps) => equals(prevProps.cardData, nextProps.cardData));
+export default memo(ItemCard, (prevProps, nextProps) => equals(prevProps.cardData, nextProps.cardData)); // memoizing the item card

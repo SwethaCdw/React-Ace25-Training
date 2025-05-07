@@ -7,6 +7,7 @@ import './home-screen.css'
 const HomeScreen = () => {
     const [productData, setProductData] = useState([]);
     const { categoryId } = useParams();
+    // Fetching of products data list
     useEffect(() => {
         fetch(`https://jsonmockserver.vercel.app/api/shopping/furniture/products?category=${categoryId}`)
             .then((response) => response.json())

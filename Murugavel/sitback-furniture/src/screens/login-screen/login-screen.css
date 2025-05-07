@@ -28,6 +28,8 @@
     letter-spacing: -1px;
 }
 
+/* Login form styles beginning */
+
 .login-form{
     margin-top: 3.3rem;
 }
@@ -67,3 +69,5 @@
     bottom: -2rem;
     right: 2.8rem;
 }
+
+/* Login form styles ending */

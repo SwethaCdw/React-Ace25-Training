@@ -1,8 +1,8 @@
 import { NavLink, Link } from 'react-router-dom';
-import './header.css'
+import './navbar.css'
 import { useUserContext } from '../../context/UserContext';
 
-const Header = () => {
+const Navbar = () => {
     const { user } = useUserContext();
     return (
         <header className="header">
@@ -25,4 +25,4 @@ const Header = () => {
     )
 }
 
-export default Header;
+export default Navbar;

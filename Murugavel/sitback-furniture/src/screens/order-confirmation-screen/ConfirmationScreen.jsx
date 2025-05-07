@@ -11,7 +11,7 @@ const ConfirmationScreen = () => {
     const setCartData = useCartDispatchContext();
     const navigate = useNavigate();
     const handleClick = () => {
-        setCartData({ cartItems: [], totalAmount: 0 });
+        setCartData({ cartItems: [], totalAmount: 0 }); // resetting of values in the cart context
         navigate('/');
     }
     return (
@@ -21,6 +21,7 @@ const ConfirmationScreen = () => {
                 Thank you{user && <span> {user}</span>}, for shopping with us. The items will be delivered within 7 days.
             </p>
             <div className="order-list">
+                {/* Mapping over the cart data in the cart context */}
                 {cartData.cartItems.map((productData, index) => <OrderCard key={index} productData={productData} />)}
             </div>
             <Button handleClick={handleClick}>Return Home</Button>

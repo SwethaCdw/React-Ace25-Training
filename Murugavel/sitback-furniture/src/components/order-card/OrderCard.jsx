@@ -1,7 +1,7 @@
 import './order-card.css'
 
 const OrderCard = ({ productData }) => {
-    const { name, photo, price, description, quantity } = productData;
+    const { name, photo, price, description, quantity } = productData; // destructuring data from the productData object
     return (
         <div className="itemCard">
             <div className="itemCard-image-wrapper">

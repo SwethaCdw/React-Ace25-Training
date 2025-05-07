@@ -8,6 +8,8 @@
     padding-right: 0.2rem;
 }
 
+/* Amount banner section beginning */
+
 .amount-banner{
     height: 5.2rem;
     background-color: var(--primary-color);
@@ -22,3 +24,5 @@
     font-size: 0.75rem;
     font-weight: 350;
 }
+
+/* Amount banner section ending */

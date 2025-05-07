@@ -4,13 +4,14 @@ import { lazy, Suspense } from 'react';
 import Loader from '../../components/loader/Loader';
 import { ClipLoader } from 'react-spinners';
 
-const CartDetailsContainer = lazy(() => import('../cart-details-container/CartDetailsContainer'));
+// Lazy loading the cart details container
+const CartDetailsContainer = lazy(() => import('../cart-details-container/CartDetailsContainer')); 
 
 const CartContainer = () => {
-    const cartData = useCartStateContext();
+    const cartData = useCartStateContext(); // fetching cart items data from the cart context
 
     if (cartData.cartItems.length === 0) {
-        return null;
+        return null; // doesn't render anything if there is no items in the cart
     }
 
     return (

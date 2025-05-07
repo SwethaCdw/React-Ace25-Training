@@ -12,6 +12,7 @@ const CartDetailsContainer = ({cartData}) => {
     return (
         <>
             <div className='cart-item-list'>
+                {/* Mapping over the items in the cartItems array */}
                 {cartData.cartItems.map((orderData, index) => <CartItemCard key={index} productData={orderData} />)}
             </div>
             <div className="amount-banner">
