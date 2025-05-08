@@ -5,7 +5,7 @@ import SuccessBanner from "./SuccessBanner";
 import '../assets/styles/contact-form.css';
 
 // Regex expressions to validate the input fields
-const nameRegex = /[0-9]|[\W]k/;
+const nameRegex = /[0-9]|[\W]/;
 const numberRegex = /^\d{10}$/;
 
 const ContactForm = ({ placeData }) => {
