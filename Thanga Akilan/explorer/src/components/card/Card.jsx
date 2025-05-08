@@ -5,8 +5,9 @@ import styles from "./Card.module.css";
 const Card = ({place,city,description}) => {
     const navigate = useNavigate();
 
+    console.log(city);
     const handleClick = ()=>{
-        navigate(`/details/${city}`)
+        navigate(`/details/${city}`);
     }
     
 

@@ -1,8 +1,29 @@
 
 
-.input_element{
+.select_wrapper{
+    position: relative;
     width: 41vw;
+}
+
+.dropdown_arrow{
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-32%);
     font-size: 1.25rem;
-    padding: 1.5rem 2rem;
+    pointer-events: none;
+}
+
+.input_element{
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 1.5rem 2.1rem;
     cursor: pointer;
+    border-radius: 0;
+    -webkit-appearance: none;
+    color: #929292;
+}
+
+.input_element:focus{
+    outline: none;
 }

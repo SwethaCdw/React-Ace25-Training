@@ -10,42 +10,45 @@ main{
 
 .promo_section{
     display: flex;
-    padding-left: 8.5%;
+    padding-left: 8.6%;
 }
 
 .promo_section_content{
     max-width: 35%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    padding-top: 10.65rem;
 }
 
 .promo_heading{
     font-size: 1.5rem;
-    font-weight: 400;
-    color: primary-color;
+    letter-spacing: 0.45px;
+    font-weight: 450;
+    color: #9C5280;
 }
 
 .promo_subheading{
     color: primary-color;
-    font-size: 5rem;
-    font-weight: 200;
-    line-height: 5.75rem;
+    font-size: 4.535rem;
+    letter-spacing: 0.7px;
+    font-weight: 275;
+    line-height: 5.45rem;
     margin-top: 2rem;
+    margin-bottom: 5.25rem;
 
 }
 
-.promo_subheading span{
-    font-weight: 500;
+.promo_subheading_highlight{
+    font-weight: 600;
 }
+
 
 
 .explore_button{
-    margin: 1.5rem 0 3rem;
-    padding: 0.95rem 2.5rem;
+    margin: 1.35rem 0 3rem;
+    padding: 0.8rem 2.35rem 0.8rem;
     width: max-content;
     background-color: primary-color;
-    font-size: 1.05rem;
+    font-size: 1.045rem;
+    transform: scaleY(1.15);
     letter-spacing: 1px;
     color: #fff;
     border: none;
@@ -56,8 +59,8 @@ main{
 
 .destinations_section{
     width: 100%;
-    padding: 0 6.5% 1%;
-    margin-top: 6.25rem;
+    padding: 0 6.575% 4.75%;
+    margin-top: 6.55rem;
 }
 
 
@@ -66,19 +69,21 @@ main{
     color: primary-color;
     font-size: 3rem;
     font-weight: 500;
+    line-height: 1;
 }
 
 .destinations_section_subheading{
     color: primary-color;
     font-size: 1.5rem;
     font-weight: 300;
+    margin-top: 0.15rem;
 }
 
 .destinations_container{
-    margin-top: 3rem;
+    margin-top: 2.65rem;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
+    justify-content: space-between;
+    row-gap: 5.35rem;
 }

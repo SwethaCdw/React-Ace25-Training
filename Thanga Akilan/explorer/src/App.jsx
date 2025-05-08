@@ -1,12 +1,13 @@
-import Home from './pages/Home'
-import Details from './pages/Details'
+import Home from './pages/home/Home'
+import Details from './pages/details/Details'
 import {createBrowserRouter, RouterProvider } from 'react-router'
 import { useEffect, useState } from 'react'
-
+import { SpinnerDiamond } from 'spinners-react'
 
 
 function App() {
   const [locations,setLocations] = useState(null);
+  const[isLoading, setIsLoading] = useState(true);
 
 
   useEffect(()=>{
@@ -14,18 +15,20 @@ function App() {
     .then((response)=> response.json())
     .then(locationsData=> {
       setLocations(locationsData);
+      setIsLoading(false);
     })
   },[])
 
-  if(!locations){
-    return <p>Loading....</p>
+  if(isLoading){
+    return <p>
+                <SpinnerDiamond size={100} enabled={true} style={{position:"fixed", top:"50%", right:"50%" }}/></p>
   }
 
   
 
   const router = createBrowserRouter([
     {path:'/', element: <Home placeData={locations}/>},
-    {path:'/details/:locationName', element: <Details placeData={locations}/>},
+    {path:'/details/:placeName', element: <Details placeData={locations} />},
     {path: '*', element: <Home placeData={locations} />}
   ])
 

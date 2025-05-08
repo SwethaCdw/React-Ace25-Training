@@ -3,18 +3,30 @@
 .contact_form_section{
     background-color: #F7f7f7;
     width: 100%;
-    padding: 5% 30%;
+    padding: 5.5rem 29.5% 7rem;
 }
 
 .contact_form_heading{
     font-size: 3rem;
     font-weight: 500;
+    line-height: 1;
     color:  primary-color;
+    text-align: left;
 }
 
 .contact_form_subheading{
-    font-size: 1.15rem;
-    color:  primary-color;
+    font-size: 1.5rem;
+    font-weight: 350;
+    color: #A25D88;
+    margin-top: 0.25rem;
+    letter-spacing: 0.25px;
+}
+
+.contact_form_input_container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.25rem;
+    margin-top: 2.25rem;
 }
 
 .input_element{
@@ -23,11 +35,17 @@
     padding: 1.5rem 2rem;
 }
 
+.error{
+    color: #FF0000;
+}
 
 .contact_form_submit{
-    padding: 0.75rem 2rem;
+    width: 14.75rem;
+    padding: 0.85rem 0;
     background-color: primary-color;
     color: #FFF;
     border: none;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
+    font-weight: 200;
+    cursor: pointer;
 }

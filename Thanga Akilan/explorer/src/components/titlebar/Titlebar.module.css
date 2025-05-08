@@ -6,27 +6,29 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 4rem;
+    padding: 2.45rem 4rem 2rem;
     width: 100vw;
     height: 6.75rem;
 }
 
-.title-logo_wrapper{
+.title_logo_wrapper{
     width: 9rem;
 }
 
-.title_logo_wrapper > img{
+.title_logo_pic{
     height: 100%;
     width: 100%;
 }
 
-.title_menu_nav>ul{
+.title_nav{
     display: flex;
-    column-gap: 5rem;
+    column-gap: 3.85rem;
     list-style-type: none;
+    font-size: 1.05rem;
 }
 
-.nav_element{
-    cursor: pointer;
+.nav_element>a{
+    text-decoration: none;
+    color: #7A1655;
 }
 
