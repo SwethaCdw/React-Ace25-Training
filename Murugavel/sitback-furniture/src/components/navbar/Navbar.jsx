@@ -16,7 +16,7 @@ const Navbar = () => {
                         <NavLink to="/categories/chairs">CHAIRS</NavLink>
                     </li>
                     <li className="nav-link">
-                        <NavLink to={user ? '/premium' : '/login'}>PREMIUM *</NavLink>
+                        <NavLink to='/login'>PREMIUM *</NavLink>
                     </li>
                 </ul>
             </nav>

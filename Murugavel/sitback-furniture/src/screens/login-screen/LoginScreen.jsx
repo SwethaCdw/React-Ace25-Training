@@ -23,7 +23,7 @@ const LoginScreen = () => {
     const handleSubmit = useCallback(async (event) => {
         event.preventDefault(); // preventing page reloading
         // If no errors are present and the input fields are valid
-        if (!errorText.userNameText && !errorText.userNameText && userInfo.userName && userInfo.password) {
+        if (!errorText.userNameText && !errorText.passwordText && userInfo.userName && userInfo.password) {
             // Check for the input user from the users json
             const isUserValid = await findUser(userInfo.userName, userInfo.password);
             if (!isUserValid) {
@@ -74,7 +74,7 @@ const LoginScreen = () => {
                         <input type="password" name="password" id="password" value={userInfo.password} onChange={handlePasswordChange} />
                         {errorText.passwordText && <p className="error-text">{errorText.passwordText}</p>}
                     </div>
-                    <Button>LOGIN</Button>
+                    {!errorText.userNameText && !errorText.passwordText && userInfo.userName && userInfo.password && <Button>LOGIN</Button>}
                 </form>
             </div>
         </div>

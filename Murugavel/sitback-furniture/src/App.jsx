@@ -6,6 +6,7 @@ import LoginScreen from "./screens/login-screen/LoginScreen"
 import UserContextProvider from "./context/UserContext"
 import PremiumScreen from "./screens/premium-screen/PremiumScreen"
 import ConfirmationScreen from "./screens/order-confirmation-screen/ConfirmationScreen"
+import ProtectedRoute from "./routes/ProtectedRoute"
 
 function App() {
   const router = createBrowserRouter([
@@ -23,7 +24,7 @@ function App() {
         },
         {
           path: 'premium',
-          element: <PremiumScreen />
+          element: <ProtectedRoute><PremiumScreen /></ProtectedRoute>
         },
         {
           path: 'confirmOrder',

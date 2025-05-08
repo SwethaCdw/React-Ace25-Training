@@ -8,7 +8,7 @@ const ItemCard = ({ cardData }) => {
     const { id, name, photo, guarantee, price, description } = cardData;
     const setCartData = useCartDispatchContext();
     
-    const handleClick = useCallback((() => {
+    const handleClick = () => {
         setCartData((prevCart) => {
             const itemIndex = prevCart.cartItems.findIndex((cartItem) => cartItem.id == id);
             if (itemIndex == -1) { // if item is not already present in the cart items
@@ -17,9 +17,9 @@ const ItemCard = ({ cardData }) => {
                     totalAmount: parseFloat(prevCart.totalAmount) + parseFloat(price)
                 };
             }
-            return {...prevCart}; // returning new reference of previous cart when the item is already present in the list
+            return { ...prevCart }; // returning new reference of previous cart when the item is already present in the list
         })
-    }), [id, name, photo, price]);
+    };
 
     return (
         <div className="itemCard">
