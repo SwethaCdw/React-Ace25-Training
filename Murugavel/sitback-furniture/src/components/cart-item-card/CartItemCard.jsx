@@ -8,19 +8,19 @@ const CartItemCard = ({ productData }) => {
 
     const handleIncrement = useCallback(() => {
         setCartData((prevCart) => {
-            const updatedCart = prevCart.cartItems.map((prod) => prod.id == id ? { ...prod, quantity: prod.quantity + 1 } : prod);
-            return { cartItems: updatedCart, totalAmount: parseFloat(prevCart.totalAmount) + parseFloat(price) };
+            const updatedCart = prevCart.map((prod) => prod.id == id ? { ...prod, quantity: prod.quantity + 1 } : prod);
+            return updatedCart;
         });
-    }, [id, price]);
+    }, [id]);
 
     const handleDecrement = useCallback(() => {
         setCartData((prevCart) => {
-            const updatedCart = prevCart.cartItems
+            const updatedCart = prevCart
                 .map((prod) => prod.id == id ? { ...prod, quantity: prod.quantity - 1 } : prod)
                 .filter((prod) => prod.quantity > 0); // removing from the list if the quantity falls to 0
-            return { cartItems: updatedCart, totalAmount: parseFloat(prevCart.totalAmount) - parseFloat(price) };
+            return updatedCart;
         });
-    }, [id, price]);
+    }, [id]);
 
     return (
         <div className="item-card">

@@ -70,4 +70,8 @@
     right: 2.8rem;
 }
 
+.login-form > button:disabled{
+    opacity: 0.5;
+}
+
 /* Login form styles ending */

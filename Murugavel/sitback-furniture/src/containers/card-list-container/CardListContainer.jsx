@@ -9,8 +9,8 @@ const CardListContainer = ({ productData }) => {
     return (
         <div className="card-list">
             {productData.map((data) =>
-                <Suspense fallback={<Loader><ClipLoader size={50} color={'var(--loader)'} /></Loader>}>
-                    <ItemCard key={data.id} cardData={data} />
+                <Suspense key={data.id} fallback={<Loader><ClipLoader size={50} color={'var(--loader)'} /></Loader>}>
+                    <ItemCard cardData={data} isOrderCard={false} />
                 </Suspense>)}
         </div>
     )

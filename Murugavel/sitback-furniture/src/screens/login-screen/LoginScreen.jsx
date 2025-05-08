@@ -26,7 +26,7 @@ const LoginScreen = () => {
         if (!errorText.userNameText && !errorText.passwordText && userInfo.userName && userInfo.password) {
             // Check for the input user from the users json
             const isUserValid = await findUser(userInfo.userName, userInfo.password);
-            if (!isUserValid) {
+            if (!isUserValid ) {
                 setErrorText((prevErr) => ({ ...prevErr, passwordText: 'Invalid username / password' }));
                 setUserInfo((prevInfo) => ({ ...prevInfo, password: '' })); // resetting value of password
                 return;
@@ -74,7 +74,9 @@ const LoginScreen = () => {
                         <input type="password" name="password" id="password" value={userInfo.password} onChange={handlePasswordChange} />
                         {errorText.passwordText && <p className="error-text">{errorText.passwordText}</p>}
                     </div>
-                    {!errorText.userNameText && !errorText.passwordText && userInfo.userName && userInfo.password && <Button>LOGIN</Button>}
+                    <Button isDisabled={(!userInfo.userName || !userInfo.password) ? true : false}>
+                        LOGIN
+                    </Button>
                 </form>
             </div>
         </div>

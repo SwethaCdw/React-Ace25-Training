@@ -1,8 +1,9 @@
+import { useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCartStateContext, useCartDispatchContext } from '../../context/CartContext';
 import { useUserContext } from '../../context/UserContext';
 import Button from '../../components/button/Button';
-import OrderCard from '../../components/order-card/OrderCard';
+import ItemCard from '../../components/item-card/ItemCard';
 import './confirmation-screen.css'
 
 const ConfirmationScreen = () => {
@@ -10,10 +11,15 @@ const ConfirmationScreen = () => {
     const cartData = useCartStateContext();
     const setCartData = useCartDispatchContext();
     const navigate = useNavigate();
-    const handleClick = () => {
-        setCartData({ cartItems: [], totalAmount: 0 }); // resetting of values in the cart context
+    useEffect(() => {
+        return () => {
+            // resetting of values in the cart context
+            setCartData([]);
+        }
+    }, []);
+    const handleClick = useCallback(() => {
         navigate('/');
-    }
+    }, []);
     return (
         <section className="order-confirmation-wrapper">
             <h2 className="confirmation-header">Order Confirmation</h2>
@@ -22,7 +28,7 @@ const ConfirmationScreen = () => {
             </p>
             <div className="order-list">
                 {/* Mapping over the cart data in the cart context */}
-                {cartData.cartItems.map((productData, index) => <OrderCard key={index} productData={productData} />)}
+                {cartData.map((productData, index) => <ItemCard key={index} cardData={productData} isOrderCard={true} />)}
             </div>
             <Button handleClick={handleClick}>Return Home</Button>
         </section>

@@ -10,7 +10,7 @@ const CartDetailsContainer = lazy(() => import('../cart-details-container/CartDe
 const CartContainer = () => {
     const cartData = useCartStateContext(); // fetching cart items data from the cart context
 
-    if (cartData.cartItems.length === 0) {
+    if (cartData.length === 0) {
         return null; // doesn't render anything if there is no items in the cart
     }
 

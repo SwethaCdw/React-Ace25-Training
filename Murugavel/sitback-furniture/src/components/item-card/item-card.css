@@ -1,7 +1,7 @@
 .itemCard{
     display: flex;
     flex-direction: column;
-    width: 23.7rem;
+    width: calc((103rem - 8.2rem) / 4);
 }
 
 .itemCard-image-wrapper{
@@ -25,6 +25,11 @@
     font-weight: 300;
     margin: 0.44rem 0 0.82rem;
     line-height: 1.21rem;
+}
+
+.order-quantity-text{
+    margin-top: 0.4rem;
+    font-size: 0.75rem;
 }
 
 .guarantee-details{

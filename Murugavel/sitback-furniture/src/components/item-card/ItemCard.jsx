@@ -1,25 +1,22 @@
 import { memo, useCallback } from 'react';
 import { useCartDispatchContext } from '../../context/CartContext';
-import equals from 'fast-deep-equal';
+import equal from 'fast-deep-equal';
 import Button from '../button/Button';
 import './item-card.css'
 
-const ItemCard = ({ cardData }) => {
-    const { id, name, photo, guarantee, price, description } = cardData;
-    const setCartData = useCartDispatchContext();
+const ItemCard = ({ cardData, isOrderCard }) => {
+    const { id, name, photo, price, description } = cardData;
+    const setCartData = !isOrderCard ? useCartDispatchContext() : null;
     
-    const handleClick = () => {
+    const handleClick = !isOrderCard ? useCallback(() => {
         setCartData((prevCart) => {
-            const itemIndex = prevCart.cartItems.findIndex((cartItem) => cartItem.id == id);
+            const itemIndex = prevCart.findIndex((cartItem) => cartItem.id == id);
             if (itemIndex == -1) { // if item is not already present in the cart items
-                return {
-                    cartItems: [...prevCart.cartItems, { id, name, photo, price, description, quantity: 1 }],
-                    totalAmount: parseFloat(prevCart.totalAmount) + parseFloat(price)
-                };
+                return [...prevCart, { id, name, photo, price, description, quantity: 1 }];
             }
-            return { ...prevCart }; // returning new reference of previous cart when the item is already present in the list
+            return [...prevCart]; // returning new reference of previous cart when the item is already present in the list
         })
-    };
+    }, []) : null;
 
     return (
         <div className="itemCard">
@@ -30,17 +27,18 @@ const ItemCard = ({ cardData }) => {
                 <p className="product-name">{name}</p>
                 <p className="product-price"><span className="rupee">₹ </span>{price}</p>
             </div>
+            {isOrderCard && <p className="order-quantity-text">Quantity: {cardData.quantity}</p>}
             <p className="product-description">{description}</p>
-            <div className="guarantee-details">
+            {!isOrderCard && <><div className="guarantee-details">
                 <div className="shield-check-wrapper">
                     <img src="../src/assets/images/shield-check.png" alt="Guarantee icon" />
                 </div>
-                <p className="guarantee-text">{guarantee} YEAR{guarantee > 1 && 'S'} GUARANTEE</p>
+                <p className="guarantee-text">{cardData.guarantee} YEAR{cardData.guarantee > 1 && 'S'} GUARANTEE</p>
             </div>
             <hr className='divider' />
-            <Button handleClick={handleClick}>ADD TO CART</Button>
+            <Button handleClick={handleClick}>ADD TO CART</Button></>}
         </div>
     )
 }
 
-export default memo(ItemCard, (prevProps, nextProps) => equals(prevProps.cardData, nextProps.cardData)); // memoizing the item card
+export default memo(ItemCard, (prevProps, nextProps) => equal(prevProps.cardData, nextProps.cardData)); // memoizing the item card
