@@ -1,0 +1,58 @@
+/* Global variables */
+
+:root{
+    --primary-color: #7a1655;
+    --secondary-color: #ffffff;
+    --side-info: #9a4f7e;
+    --black: #000;
+    --input-text: #8b8b8b;
+    --form-container-background: #f7f7f7;
+    --error-text: #ff0000;
+}
+
+/* Resetting default styles */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Font styles and common styles */
+
+body{
+    font-family: "Roboto", sans-serif;
+    color: var(--primary-color);
+}
+
+img{
+    height: 100%;
+    width: 100%;
+}
+
+input, select{
+    position: relative;
+    width: 44.1rem;
+    height: 4.57rem;
+    padding: 0 2.05rem;
+    outline: none;
+    font-size: 1.3rem;
+    display: block;
+    color: var(--input-text);
+}
+
+select{
+    font-size: 1.1rem;
+    /* For removing the default arrow icon */
+    appearance: none;        
+    -webkit-appearance: none; 
+    -moz-appearance: none;    
+}
+
+/* Removal of spinner in number fields */
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

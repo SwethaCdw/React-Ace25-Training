@@ -1,0 +1,45 @@
+/* Place Details section beginning */
+
+.place-text{
+    font-size: 5.2rem;
+    font-weight: 350;
+    margin-left: -0.4rem;
+    margin-bottom: 1.1rem;
+}
+
+.place-info{
+    font-size: 3.73rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    line-height: 5.64rem;
+    padding: 5rem 4.45rem 3.4rem;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.weather-text{
+    color: var(--black);
+    font-size: 4.25rem;
+    font-weight: 350;
+    margin-top: 0.9rem;
+}
+
+.place-details{
+    width: 86.9%;
+    margin: auto;
+}
+
+.description-text-wrapper{
+    margin: 6.7rem 0 6.2rem;
+}
+
+.description-text{
+    color: var(--black);
+    font-size: 2.311rem;
+    font-weight: 350;
+    line-height: 3.1rem;
+    text-align: justify;
+    margin-bottom: 3.05rem;
+}
+
+/* Place Details section ending */

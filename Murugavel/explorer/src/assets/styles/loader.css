@@ -1,0 +1,12 @@
+.loader{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.loading-text{
+    color: var(--black);
+    font-size: 3rem;
+    letter-spacing: 3px;
+    font-weight: 350;
+}

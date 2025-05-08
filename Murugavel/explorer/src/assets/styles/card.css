@@ -1,0 +1,35 @@
+.card{
+    width: 30rem;
+    display: grid;
+    grid-template-rows: auto auto auto 1fr auto;
+    color: var(--black);
+}
+
+.card-image-wrapper{
+    height: 22.55rem;
+}
+
+.card-title{
+    font-weight: 250;
+    font-size: 2.27rem;
+    margin-top: 1rem;
+}
+
+.card-place{
+    font-size: 1.1rem;
+    margin-top: 0.65rem;
+    letter-spacing: 1px;
+}
+
+.card-description{
+    margin-top: 2.06rem;
+    font-size: 1.13rem;
+    font-weight: 350;
+    line-height: 1.4rem;
+}
+
+.card button{
+    align-self: end;
+    justify-self: start;
+    padding: 0 1.65rem;
+}

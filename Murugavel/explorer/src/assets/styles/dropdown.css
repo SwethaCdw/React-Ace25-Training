@@ -1,0 +1,14 @@
+.select-wrapper{
+    width: 44.1rem;
+    position: relative;
+}
+
+.custom-arrow {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* clicking the arrow still opens the dropdown */
+  color: var(--black);
+  font-size: 0.7rem;
+}
