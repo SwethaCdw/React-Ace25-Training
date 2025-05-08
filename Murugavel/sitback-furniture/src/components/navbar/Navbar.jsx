@@ -1,6 +1,6 @@
 import { NavLink, Link } from 'react-router-dom';
-import './navbar.css'
 import { useUserContext } from '../../context/UserContext';
+import './navbar.css'
 
 const Navbar = () => {
     const { user } = useUserContext();
@@ -20,7 +20,14 @@ const Navbar = () => {
                     </li>
                 </ul>
             </nav>
-            {user ? <p className='user-text'>{user}</p> : <Link to='/login'><p className="user-text">Login Now</p></Link>}
+            {user ?
+                <div className='user-info'>
+                    <p className='user-text'>{user}</p>
+                    <p className='custom-arrow'>▼</p>
+                </div>
+                :
+                <Link to='/login'><p className="user-text">Login Now</p></Link>
+            }
         </header>
     )
 }

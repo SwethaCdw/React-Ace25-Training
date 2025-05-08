@@ -41,7 +41,19 @@
 
 /* nav list ending */
 
+.user-info{
+    display: flex;
+    column-gap: 0.7rem;
+}
+
 .user-text{
     font-size: 0.845rem;
     font-weight: 550;
+    word-spacing: 10rem;
+}
+
+.custom-arrow{
+    font-size: 0.4rem;
+    padding-top: 0.2rem;
+    align-self: center;
 }
