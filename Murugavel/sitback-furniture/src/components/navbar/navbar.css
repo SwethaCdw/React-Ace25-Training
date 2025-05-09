@@ -1,0 +1,70 @@
+.header{
+    position: relative;
+    height: 4.5rem;
+    padding: 0 2.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 7px 3px var(--shadow);
+}
+
+.logo-text{
+    font-size: 1.1rem;
+    font-weight: 550;
+    margin-left: 0.55rem;
+    letter-spacing: 0.6px;    
+}
+
+/* nav list beginning */
+
+.nav-list{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    column-gap: 3.9rem;
+}
+
+.nav-link{
+    position: relative;
+    font-size: 0.89rem;
+    font-weight: 500;
+}
+
+.nav-link > a.active::after{
+    content: '';
+    width: 88%;
+    position: absolute;
+    top: 2.5rem;
+    left: 0;
+    border: 4px solid var(--secondary-color);
+}
+
+/* nav list ending */
+
+.user-info{
+    display: flex;
+    align-items: center;
+    column-gap: 0.7rem;
+}
+
+.user-text{
+    font-size: 0.845rem;
+    font-weight: 550;
+}
+
+.custom-arrow{
+    font-size: 0.4rem;
+    padding-top: 0.2rem;
+    position: relative;
+}
+
+.dropdown{
+    position: absolute;
+    right: 1.3rem;
+    bottom: 0;
+}
+
+.custom-arrow:hover, .dropdown > p{
+    cursor: pointer;
+    user-select: none;
+}

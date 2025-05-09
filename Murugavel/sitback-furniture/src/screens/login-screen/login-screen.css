@@ -1,0 +1,77 @@
+.login-screen{
+    height: 100dvh;
+    background: url('../src/assets/images/login-background.jpg') no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.login-container{
+    width: 34.7rem;
+    position: absolute;
+    top: 10.4rem;
+    right: 6.6rem;
+    padding: 3.5rem 2.7rem 3.2rem;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 15px;
+    color: var(--primary-color);
+}
+
+.brand{
+    font-size: 4.5rem;
+    font-weight: 400;
+    line-height: 3.8rem;
+    text-align: center;
+}
+
+.text-shrink{
+    font-size: 3.7rem;
+    letter-spacing: -1px;
+}
+
+/* Login form styles beginning */
+
+.login-form{
+    margin-top: 3.3rem;
+}
+
+.label-text{
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.label-input-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.55rem;
+    margin-bottom: 1.57rem;
+}
+
+.login-form input{
+    background: none;
+    outline: none;
+    height: 4.1rem;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    padding: 0 1rem;
+    border: 1px solid var(--primary-color);
+}
+
+.error-text{
+    color: var(--error-text);
+}
+
+.login-form > button{
+    font-size: 1.32rem;
+    padding: 1.25rem 2.7rem;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    position: absolute;
+    bottom: -2rem;
+    right: 2.8rem;
+}
+
+.login-form > button:disabled{
+    opacity: 0.5;
+}
+
+/* Login form styles ending */

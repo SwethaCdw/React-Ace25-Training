@@ -1,0 +1,72 @@
+.item-card{
+    position: relative;
+    margin-left: 1.6rem;
+    border-radius: 10px;
+}
+
+.item-image-wrapper{
+    position: relative;
+    top: 0.6rem;
+    right: 1.6rem;
+    width: 7.71rem;
+    height: 5.2rem;
+}
+
+.item-image-wrapper > img{
+    border-radius: 8px;
+}
+
+/* Order details beginning */
+
+.order-details{
+    margin-left: -0.65rem;
+    font-size: 0.82rem;
+    padding-right: 0.5rem;
+}
+
+.order-price{
+    margin-top: 0.2rem;
+    font-size: 0.75rem;
+}
+
+/* Order details ending */
+
+/* Quantity control section beginning */
+
+.quantity-control-wrapper{
+    position: absolute;
+    justify-content: space-around;
+    right: 14px;
+    bottom: -9px;
+    height: 1.6rem;
+    width: 4.8rem;
+    border-radius: 5px;
+}
+
+.quantity-control-wrapper > p{
+    font-size: 0.76rem;
+}
+
+.quantity-text{
+    font-family: sans-serif;
+}
+
+/* Quantity control section ending */
+
+/* Common styles beginning */
+
+.item-card, .quantity-control-wrapper{
+    background-color: var(--primary-color);
+    box-shadow: 0px 2px 7px 0px var(--shadow);
+    display: flex;
+    align-items: center;
+}
+
+/* Common styles ending */
+
+/* Pseudo class styles */
+
+.quantity-control-icon:hover{
+    user-select: none;
+    cursor: pointer;
+}
