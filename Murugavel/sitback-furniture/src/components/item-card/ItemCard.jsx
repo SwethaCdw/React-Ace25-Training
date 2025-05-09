@@ -1,5 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useCartDispatchContext } from '../../context/CartContext';
+import { ITEMCARD } from '../../constants';
 import equal from 'fast-deep-equal';
 import Button from '../button/Button';
 import './item-card.css'
@@ -25,18 +26,20 @@ const ItemCard = ({ cardData, isOrderCard }) => {
             </div>
             <div className="product-details">
                 <p className="product-name">{name}</p>
-                <p className="product-price"><span className="rupee">₹ </span>{price}</p>
+                <p className="product-price">
+                    <span className="rupee">₹ </span>{new Intl.NumberFormat('en-IN').format(price)}
+                </p>
             </div>
-            {isOrderCard && <p className="order-quantity-text">Quantity: {cardData.quantity}</p>}
+            {isOrderCard && <p className="order-quantity-text">{ITEMCARD.QUANTITY}: {cardData.quantity}</p>}
             <p className="product-description">{description}</p>
             {!isOrderCard && <><div className="guarantee-details">
                 <div className="shield-check-wrapper">
                     <img src="../src/assets/images/shield-check.png" alt="Guarantee icon" />
                 </div>
-                <p className="guarantee-text">{cardData.guarantee} YEAR{cardData.guarantee > 1 && 'S'} GUARANTEE</p>
+                <p className="guarantee-text">{cardData.guarantee} {ITEMCARD.YEAR}{cardData.guarantee > 1 && 'S'} {ITEMCARD.GUARANTEE}</p>
             </div>
             <hr className='divider' />
-            <Button handleClick={handleClick}>ADD TO CART</Button></>}
+            <Button handleClick={handleClick}>{ITEMCARD.BUTTON}</Button></>}
         </div>
     )
 }

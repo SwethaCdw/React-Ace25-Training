@@ -29,7 +29,9 @@ const CartItemCard = ({ productData }) => {
             </div>
             <div className="order-details">
                 <p className='order-name'>{name}</p>
-                <p className='order-price'><span className="rupee">₹ </span>{quantity * price}</p>
+                <p className='order-price'>
+                    <span className="rupee">₹ </span>{new Intl.NumberFormat('en-IN').format(quantity * price)}
+                </p>
             </div>
             <div className="quantity-control-wrapper">
                 <p className='quantity-control-icon' onClick={handleDecrement}>-</p>

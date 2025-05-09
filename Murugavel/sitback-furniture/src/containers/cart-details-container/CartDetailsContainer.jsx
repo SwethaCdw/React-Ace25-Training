@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { CARTDETAILS } from "../../constants";
 import Button from "../../components/button/Button";
 import CartItemCard from "../../components/cart-item-card/CartItemCard";
 import './cart-details-container.css'
@@ -20,10 +21,10 @@ const CartDetailsContainer = ({cartData}) => {
             </div>
             <div className="amount-banner">
                 <div className="amount-details">
-                    <p className='amount-text'>TOTAL AMOUNT</p>
-                    <p><span className="rupee">₹ </span> {totalAmount}</p>
+                    <p className='amount-text'>{CARTDETAILS.AMOUNT}</p>
+                    <p><span className="rupee">₹ </span> {new Intl.NumberFormat('en-IN').format(totalAmount)}</p>
                 </div>
-            <Button handleClick={handleClick}>PLACE ORDER</Button>
+            <Button handleClick={handleClick}>{CARTDETAILS.ORDER}</Button>
             </div>
         </>
     )
