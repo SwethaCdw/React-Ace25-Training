@@ -3,13 +3,12 @@ import { CARTDETAILS } from "../../constants";
 import Button from "../../components/button/Button";
 import CartItemCard from "../../components/cart-item-card/CartItemCard";
 import './cart-details-container.css'
-import { useCallback } from "react";
 
 const CartDetailsContainer = ({cartData}) => {
     const navigate = useNavigate();
-    const handleClick = useCallback(() => {
+    const handleClick = () => {
         navigate('/confirmOrder');
-    }, []);
+    };
     const totalAmount = cartData.reduce((accumulator, currentValue) => 
         accumulator + (parseFloat(currentValue.quantity) * parseFloat(currentValue.price))
         , 0);

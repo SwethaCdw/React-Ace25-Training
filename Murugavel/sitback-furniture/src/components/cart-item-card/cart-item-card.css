@@ -68,5 +68,5 @@
 
 .quantity-control-icon:hover{
     user-select: none;
-    cursor: default;
+    cursor: pointer;
 }

@@ -43,6 +43,7 @@
 
 .user-info{
     display: flex;
+    align-items: center;
     column-gap: 0.7rem;
 }
 
@@ -54,5 +55,16 @@
 .custom-arrow{
     font-size: 0.4rem;
     padding-top: 0.2rem;
-    align-self: center;
+    position: relative;
+}
+
+.dropdown{
+    position: absolute;
+    right: 1.3rem;
+    bottom: 0;
+}
+
+.custom-arrow:hover, .dropdown > p{
+    cursor: pointer;
+    user-select: none;
 }

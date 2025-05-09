@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { useCartDispatchContext } from '../../context/CartContext';
 import './cart-item-card.css'
 
@@ -6,21 +5,21 @@ const CartItemCard = ({ productData }) => {
     const setCartData = useCartDispatchContext();
     const { id, name, photo, quantity, price } = productData;
 
-    const handleIncrement = useCallback(() => {
+    const handleIncrement = () => {
         setCartData((prevCart) => {
             const updatedCart = prevCart.map((prod) => prod.id == id ? { ...prod, quantity: prod.quantity + 1 } : prod);
             return updatedCart;
         });
-    }, [id]);
+    };
 
-    const handleDecrement = useCallback(() => {
+    const handleDecrement = () => {
         setCartData((prevCart) => {
             const updatedCart = prevCart
                 .map((prod) => prod.id == id ? { ...prod, quantity: prod.quantity - 1 } : prod)
                 .filter((prod) => prod.quantity > 0); // removing from the list if the quantity falls to 0
             return updatedCart;
         });
-    }, [id]);
+    };
 
     return (
         <div className="item-card">

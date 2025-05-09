@@ -1,6 +1,6 @@
 import { useCartStateContext } from '../../context/CartContext';
 import './cart-container.css'
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import Loader from '../../components/loader/Loader';
 import { ClipLoader } from 'react-spinners';
 
@@ -9,6 +9,10 @@ const CartDetailsContainer = lazy(() => import('../cart-details-container/CartDe
 
 const CartContainer = () => {
     const cartData = useCartStateContext(); // fetching cart items data from the cart context
+
+    useEffect(() => {
+        localStorage.setItem('cartItems', JSON.stringify(cartData));
+    }, [cartData]);
 
     if (cartData.length === 0) {
         return null; // doesn't render anything if there is no items in the cart

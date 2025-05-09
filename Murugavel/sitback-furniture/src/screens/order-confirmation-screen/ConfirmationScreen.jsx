@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCartStateContext, useCartDispatchContext } from '../../context/CartContext';
 import { useUserContext } from '../../context/UserContext';
@@ -17,9 +17,9 @@ const ConfirmationScreen = () => {
             setCartData([]);
         }
     }, []);
-    const handleClick = useCallback(() => {
+    const handleClick = () => {
         navigate('/');
-    }, []);
+    };
     return (
         <section className="order-confirmation-wrapper">
             <h2 className="confirmation-header">Order Confirmation</h2>
