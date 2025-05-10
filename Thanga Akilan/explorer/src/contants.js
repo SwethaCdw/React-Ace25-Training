@@ -1,5 +1,7 @@
 
 import logo from "./assets/logo.png";
+
+
 const TITLEBAR = {
     LOGO: {
         IMAGE: {
@@ -40,14 +42,14 @@ const SELECT_INPUT = {
     DEFAULT_VALUE:  "Choose"
 }
 
-const CARDS_CONTAINER = {
+const HOME_PAGE = {
     HEADING: "Destinations",
     SUBHEADING: "Just for you. Because you and your bike are special to us!"
 }
 
-const SIMILAR_PLACES_CONTAINER = {
+const DETAILS_PAGE = {
     HEADING: "Similar Destinations",
-    SUBHEADING: "Because you liked "
+    SUBHEADING: (place) => (`Because you liked ${place}`)
 }
 
 const CONTACT_US_FORM = {
@@ -73,8 +75,8 @@ export {
     PROMO_CONTAINER_HOME,
     PROMO_CONTAINER_DETAILS,
     SELECT_INPUT,
-    CARDS_CONTAINER,
-    SIMILAR_PLACES_CONTAINER,
+    HOME_PAGE,
+    DETAILS_PAGE,
     CONTACT_US_FORM,
     SUCCESS_BANNER
 

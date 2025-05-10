@@ -42,10 +42,6 @@
 .contact_form_submit{
     width: 14.75rem;
     padding: 0.85rem 0;
-    background-color: primary-color;
-    color: #FFF;
-    border: none;
     font-size: 1.15rem;
     font-weight: 200;
-    cursor: pointer;
 }

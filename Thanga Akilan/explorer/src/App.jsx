@@ -20,8 +20,7 @@ function App() {
   },[])
 
   if(isLoading){
-    return <p>
-                <SpinnerDiamond size={100} enabled={true} style={{position:"fixed", top:"50%", right:"50%" }}/></p>
+    return <SpinnerDiamond size={100} enabled={true} style={{position:"fixed", top:"50%", right:"50%" }}/>
   }
 
   

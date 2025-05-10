@@ -1,16 +1,14 @@
-import styles from "../pages/home/Home.module.css";
 import Card from "../components/card/Card";
-import { CARDS_CONTAINER as CONSTANTS } from "../contants";
 
-const CardsContainer = ({placeData})=>{
+const CardsContainer = ({heading, subheading, placeData, styles})=>{
     return(
         <>
-        <section className={styles.destinations_section}>
-        <h2 className={styles.destinations_section_heading}>{CONSTANTS.HEADING}</h2>
-        <h3 className={styles.destinations_section_subheading}>{CONSTANTS.SUBHEADING}</h3>
-        <div className={styles.destinations_container}>
+        <section className={`${styles.destinations_section} ${styles.similar_destinations_section}`}>
+        <h2 className={`${styles.destinations_section_heading} ${styles.similar_destinations_heading}`}>{heading}</h2>
+        <h3 className={`${styles.destinations_section_subheading} ${styles.similar_destinations_subheading}`}>{subheading}</h3>
+        <div className={`${styles.destinations_container} ${styles.similar_destinations_container}`}>
             {placeData.map((place,index)=>
-            <Card key={place.city} place={place.place} city={place.city} description={place.shortDescription}/>)}
+            <Card key={place.city} {...place}/>)}
         </div>
       </section>
         </>

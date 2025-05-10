@@ -3,9 +3,12 @@ import ContactForm from "../../components/contactForm/ContactForm";
 import TitleBar from "../../components/titlebar/Titlebar";
 import { useState, useEffect } from "react";
 import { SpinnerDiamond } from 'spinners-react'
-import PromoContainerDetails from "../../containers/PromoContainerDetails";
-import SimilarPlacesContainer from "../../containers/SimilarPlacesContainer";
 import DescriptionContainer from "../../containers/DescriptionContainer";
+import PromoBanner from "../../components/promoBanner/PromoBanner";
+import CityPromo from "../../components/cityPromo/Citypromo";
+import styles from "./Details.module.css"
+import CardsContainer from "../../containers/CardsContainer";
+import { DETAILS_PAGE as CONSTANTS } from "../../contants";
 
 const getPlaceDetail = async (place)=>{
     const response = await fetch(`https://nijin-server.vercel.app/api/explorer/places/${place}`);
@@ -26,8 +29,6 @@ const Details = ({placeData}) => {
         const fetchRelatedPlaces = async () => {
         try{
         const response = await fetch(`https://nijin-server.vercel.app/api/explorer/places/${placeName}`);
-            console.log(response);
-            
         const data = await response.json();
         setPlaceInfo(data); 
         
@@ -59,9 +60,11 @@ const Details = ({placeData}) => {
     return (
         <>
         <TitleBar />
-        <PromoContainerDetails placeInfo={placeInfo}/>
+        <PromoBanner imageName={placeInfo.city}>
+            <CityPromo placeInfo={placeInfo} />
+        </PromoBanner>
         <DescriptionContainer description={placeInfo.fullDescription} />
-        <SimilarPlacesContainer city={placeInfo.city} similarDestinations={similarDestinations} />
+        <CardsContainer styles={styles} heading={CONSTANTS.HEADING} subheading={CONSTANTS.SUBHEADING(placeInfo.city)} placeData={similarDestinations} />
         <ContactForm placeData={placeData} />
         </>
     )
