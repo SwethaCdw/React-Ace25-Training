@@ -15,6 +15,14 @@
     list-style: none;
     display: flex;
     column-gap: 3.92rem;
-    font-weight: 500;
+    font-weight: 450;
     font-size: 1.05rem;
 }
+
+/* Pseudo class styles beginning */
+
+.logo-wrapper:hover, .header-nav-link:hover{
+    cursor: pointer;
+}
+
+/* Pseudo class styles ending */

@@ -25,6 +25,10 @@ body{
     color: var(--primary-color);
 }
 
+.ibm-plex{
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
 img{
     height: 100%;
     width: 100%;
@@ -47,6 +51,11 @@ select{
     appearance: none;        
     -webkit-appearance: none; 
     -moz-appearance: none;    
+}
+
+a{
+    color: var(--secondary-color);
+    text-decoration: none;
 }
 
 /* Removal of spinner in number fields */

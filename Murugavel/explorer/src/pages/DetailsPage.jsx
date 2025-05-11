@@ -20,6 +20,11 @@ const DetailsPage = ({placeData}) => {
     const placeDetails = useLoaderData(); // contains the data of the current fetched place through loader function
     const [relevantPlace, setRelevantPlace] = useState([]); // state that denotes array of related places
     const [temperature, setTemperature] = useState('');
+    
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+    }, [placeId]);
+
     useEffect(() => {
         const fetchRelevantPlaces = async () => {
             const relevantPlaces = placeDetails.relatedPlaces;

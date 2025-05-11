@@ -25,10 +25,10 @@ const HomePage = ({placeData}) => {
                     </div>
                     <div className="place-input-container">
                         <DropDown placeData={placeData} selectedValue={place} setValue = {setPlace} inputID={'place'} />
-                        <Link to={`/details/${place.toLowerCase()}`}><Button>EXPLORE</Button></Link>
+                        <Link to={place ? `/details/${place.toLowerCase()}`: '/'}><Button>EXPLORE</Button></Link>
                     </div>  
                 </LeftInfoContainer>
-                <section className="destinations">
+                <section className="destinations ibm-plex">
                     <h2 className="destinations-header">Destinations</h2>
                     <p className="destinations-subtext">Just for you. Because you and your bike are special to us!</p>
                     <CardContainer>

@@ -1,8 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from './Button';
 import '../assets/styles/card.css'
 
-const Card = ({place, city, shortDescription}) => {
+const Card = ({ place, city, shortDescription }) => {
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate(`/details/${city.toLowerCase()}`);
+    }
     return (
         <div className="card">
             <div className="card-image-wrapper">
@@ -13,7 +17,7 @@ const Card = ({place, city, shortDescription}) => {
             <p className="card-description">
                 {shortDescription}
             </p>
-            <Link to={`/details/${city.toLowerCase()}`}><Button>READ MORE</Button></Link> {/* Button to navigate to the details page */}
+            <Button handleClick={handleClick}>READ MORE</Button> {/* Button to navigate to the details page */}
         </div>
     );
 }
