@@ -46,4 +46,9 @@ img{
   object-fit: cover;
 }
 
+.custom-arrow:hover, .dropdown > p:hover, .quantity-control-icon:hover, .button:hover{
+    cursor: pointer;
+    user-select: none;
+}
+
 /* Common element styles ending */

@@ -63,10 +63,3 @@
 }
 
 /* Common styles ending */
-
-/* Pseudo class styles */
-
-.quantity-control-icon:hover{
-    user-select: none;
-    cursor: pointer;
-}
