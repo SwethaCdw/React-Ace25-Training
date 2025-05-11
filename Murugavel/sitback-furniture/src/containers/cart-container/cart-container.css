@@ -1,0 +1,19 @@
+.cart-container{
+    flex: 1 1;
+    background-color: var(--cart-background);
+    padding-top: 2.65rem;
+}
+
+.cart-container > .loader{
+    height: 100%;
+    width: inherit;
+}
+
+.cart-text{
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 450;
+    margin: 0 2.35rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid var(--secondary-color);
+}

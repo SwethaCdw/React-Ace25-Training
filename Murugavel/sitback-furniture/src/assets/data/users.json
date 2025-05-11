@@ -1,0 +1,50 @@
+[
+    {
+        "username": "Murugavel",
+        "password": "test@123"
+    },
+    { 
+        "username": "KarthikM", 
+        "password": "pass@456" 
+    },
+    { 
+        "username": "AnithaS", 
+        "password": "hello@789" 
+    },
+    { 
+        "username": "PraveenK", 
+        "password": "test@111" 
+    },
+    { 
+        "username": "DivyaR", 
+        "password": "login@321" 
+    },
+    { 
+        "username": "SathishV", 
+        "password": "pwd@654" 
+    },
+    { 
+        "username": "MeenaT", 
+        "password": "secure@007" 
+    },
+    { 
+        "username": "RaviC",
+        "password": "access@2024" 
+    },
+    { 
+        "username": "SwethaJ", 
+        "password": "open@999" 
+    },
+    { 
+        "username": "NaveenA", 
+        "password": "key@1234" 
+    },
+    { 
+        "username": "BharathD", 
+        "password": "entry@101" 
+    },
+    { 
+        "username": "LakshmiG",
+        "password": "gate@567" 
+    }
+]
