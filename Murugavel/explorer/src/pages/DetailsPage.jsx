@@ -22,7 +22,7 @@ const DetailsPage = ({placeData}) => {
     const [temperature, setTemperature] = useState('');
     
     useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'instant' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [placeId]);
 
     useEffect(() => {

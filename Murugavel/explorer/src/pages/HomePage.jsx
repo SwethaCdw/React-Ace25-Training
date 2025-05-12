@@ -13,6 +13,9 @@ import '../assets/styles/home-page.css';
 
 const HomePage = ({placeData}) => {
     const [place, setPlace] = useState('');
+    const handlePlaceChange = (event) => {
+        setPlace(event.target.value);
+    }
     return (
         <>
             <Header />
@@ -24,7 +27,7 @@ const HomePage = ({placeData}) => {
                         <h2 className="info-text">Your Adventure Travel Expert in the <span className="extra-bold">SOUTH</span></h2>
                     </div>
                     <div className="place-input-container">
-                        <DropDown placeData={placeData} selectedValue={place} setValue = {setPlace} inputID={'place'} />
+                        <DropDown placeData={placeData} selectedValue={place} handleChange={handlePlaceChange} inputID={'place'} />
                         <Link to={place ? `/details/${place.toLowerCase()}`: '/'}><Button>EXPLORE</Button></Link>
                     </div>  
                 </LeftInfoContainer>

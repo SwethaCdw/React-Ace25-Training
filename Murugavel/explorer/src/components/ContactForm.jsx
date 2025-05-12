@@ -38,18 +38,27 @@ const ContactForm = ({ placeData }) => {
         }
     }, []);
 
-    const handleSubmit = useCallback((event) => {
+    const handleSourceChange = (event) => {
+        const inputValue = event.target.value;
+        if (formErr.sourceErr) {
+            setFormErr((prevErr) => ({ ...prevErr, sourceErr: '' }))
+        };
+        setSource(inputValue);
+    };
+
+    const handleDestChange = (event) => {
+        const inputValue = event.target.value;
+        if (formErr.destErr) setFormErr((prevErr) => ({...prevErr, destErr: ''}));
+        setDestination(inputValue);
+    };
+
+    const handleSubmit = (event) => {
         event.preventDefault();
-        setFormErr({ nameErr: '', numberErr: '', sourceErr: '', destErr: '' });
-        if (!nameRef.current.value) {
-            setFormErr((prevErr) => ({ ...prevErr, nameErr: 'Name is required' }));
-        } else if (!source) {
-            setFormErr((prevErr) => ({ ...prevErr, sourceErr: 'Source is required' }));
-        } else if (!destination) {
-            setFormErr((prevErr) => ({ ...prevErr, destErr: 'Destination is required' }));
-        } else if (!numberRef.current.value) {
-            setFormErr((prevErr) => ({ ...prevErr, numberErr: 'Number is required' }));
-        } else { // if all fields are valid
+        if (!nameRef.current.value) setFormErr((prevErr) => ({ ...prevErr, nameErr: 'Name is required' }));
+        if (!source) setFormErr((prevErr) => ({ ...prevErr, sourceErr: 'Source is required' }));
+        if (!destination) setFormErr((prevErr) => ({ ...prevErr, destErr: 'Destination is required' }));
+        if (!numberRef.current.value) setFormErr((prevErr) => ({ ...prevErr, numberErr: 'Number is required' }));
+        if (nameRef.current.value && numberRef.current.value && source && destination && !formErr.nameErr && !formErr.numberErr && !formErr.sourceErr && !formErr.destErr) { // if all fields are valid
             setIsSubmitted(true);
             setSubmittedData({ 
                 name: nameRef.current.value,
@@ -70,7 +79,8 @@ const ContactForm = ({ placeData }) => {
             setDestination('');
             setFormErr({ nameErr: '', numberErr: '', sourceErr: '', destErr: '' });
         }
-    }, [source, destination, formErr]);
+    };
+
     return (
         <div className="contact-section-wrapper">
             <div className="form-container ibm-plex">
@@ -78,17 +88,17 @@ const ContactForm = ({ placeData }) => {
                 <p className="contact-form-text">Our Sales Team will reach out to you ASAP!</p>
                 <form className="contact-form" onSubmit={handleSubmit}>
                     <label htmlFor="name" className="label-text">Name</label>
-                    <input type="text" id="name" ref={nameRef} onChange={handleNameChange} />
+                    <input type="text" id="name" ref={nameRef} onBlur={handleNameChange} />
                     <p className="error-text">{formErr.nameErr}</p>
 
-                    <DropDown placeData={placeData} selectedValue={source} setValue={setSource} selectedPlace={destination} labelText={'Your Home Town'} inputID={'source'} />
+                    <DropDown placeData={placeData} selectedValue={source} handleChange={handleSourceChange} formErr={formErr} selectedPlace={destination} labelText={'Your Home Town'} inputID={'source'} />
                     <p className="error-text">{formErr.sourceErr}</p>
 
-                    <DropDown placeData={placeData} selectedValue={destination} setValue={setDestination} selectedPlace={source} labelText={'Where would you like to go?'} inputID={'destination'} />
+                    <DropDown placeData={placeData} selectedValue={destination} handleChange={handleDestChange} selectedPlace={source} labelText={'Where would you like to go?'} inputID={'destination'} />
                     <p className="error-text">{formErr.destErr}</p>
 
                     <label htmlFor="contact-number" className="label-text">Contact Number</label>
-                    <input type="tel" id="contact-number" ref={numberRef} onChange={handleNumberChange}/>
+                    <input type="tel" id="contact-number" ref={numberRef} onBlur={handleNumberChange}/>
                     <p className="error-text">{formErr.numberErr}</p>
                     <Button>SUBMIT INTEREST</Button>
                 </ form>
