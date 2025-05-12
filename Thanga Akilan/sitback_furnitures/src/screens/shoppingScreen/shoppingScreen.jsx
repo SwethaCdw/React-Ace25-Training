@@ -2,11 +2,10 @@ import Header from "../../components/header/header";
 import CardsContainer from "../../containers/cardsContainer";
 import MyCart from "../../components/myCart/MyCart";
 import styles from "../shoppingScreen/shoppingScreen.module.css"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const ShoppingScreen = () => {
-    const [isCartEmpty, setIsCartEmpty] = useState(true);  
-
+const ShoppingScreen = ({setIsCartEmpty, isCartEmpty}) => {
+    
     return(
         <>
             <Header />

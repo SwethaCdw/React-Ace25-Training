@@ -1,12 +1,11 @@
 import Cart from "../components/cart/Cart";
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import CartContext from "../context/context";
 import styles from "../screens/shoppingScreen/shoppingScreen.module.css"
 
 
 const CartContainer = () => {
     const {cart} = useContext(CartContext);
-    console.log(cart)
   
     return (
       <div className={styles.cart_container}>

@@ -1,6 +1,6 @@
 
 import {createBrowserRouter, RouterProvider } from 'react-router'
-import { useState} from "react"
+import { useEffect, useState} from "react"
 import { Navigate } from 'react-router'
 import ShoppingScreen from './screens/shoppingScreen/shoppingScreen'
 import LoginScreen from './screens/loginScreen/loginScreen';
@@ -9,17 +9,24 @@ import OrderConfirmationScreen from "./screens/orderCOnfirmationScreen/orderConf
 import CartContext from "./context/context.jsx";
 
 const ProtectedRoute = ({ children }) => {
-  const isAuthenticated = !!localStorage.getItem("user"); // or "token", etc.
-
+  const isAuthenticated = !!localStorage.getItem("user"); 
   return isAuthenticated ? children : <Navigate to="/login" replace />;
 };
 
 function App() {  
-  const [cart, setCart] = useState([]);
+  const [isCartEmpty, setIsCartEmpty] = useState(true);  
+  const [cart, setCart] = useState(()=>{
+    const value = localStorage.getItem("cart");
+    return(!value ? (JSON.parse(value), setIsCartEmpty(false)): []);
+  });
+
+  useEffect(()=>{
+    localStorage.setItem('cart', JSON.stringify(cart));
+  },[cart])
 
   const router = createBrowserRouter([
     {path:'/', element: <Navigate to="/categories/couches" />},
-    {path:'/categories/:categoryID', element: <ShoppingScreen />},
+    {path:'/categories/:categoryID', element: <ShoppingScreen setIsCartEmpty={setIsCartEmpty} isCartEmpty={isCartEmpty}/>},
     {path:'/confirmOrder', element: <OrderConfirmationScreen />},
     {path:'/premium', element: <ProtectedRoute> <PremiumScreen /></ProtectedRoute>},
     {path:'/login', element: <LoginScreen />}
