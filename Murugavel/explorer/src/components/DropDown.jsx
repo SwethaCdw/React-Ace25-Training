@@ -1,3 +1,4 @@
+import { DROPDOWN } from "../constants/textConstants";
 import "../assets/styles/dropdown.css";
 
 const DropDown = ({ placeData, handleChange, labelText, inputID, selectedPlace, selectedValue}) => {
@@ -6,7 +7,7 @@ const DropDown = ({ placeData, handleChange, labelText, inputID, selectedPlace, 
             {labelText && <label className="label-text" htmlFor={inputID}>{labelText}</label>}
             <div className="select-wrapper">
                 <select id={inputID} value={selectedValue ? selectedValue : 'choose'} onChange={handleChange}>
-                    <option value={'choose'} selected disabled>Choose</option>
+                    <option value={'choose'} selected disabled>{DROPDOWN.DEFAULT_VALUE}</option>
                     {/* Iterating over placeData to fetch all city names */}
                     {placeData.map((data, index) => {
                         const isDisabled = data.city.toLowerCase() === selectedPlace; 

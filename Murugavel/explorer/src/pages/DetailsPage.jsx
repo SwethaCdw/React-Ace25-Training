@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useParams, useLoaderData } from 'react-router-dom'
+import { useParams, useLoaderData } from 'react-router-dom';
+import { DETAILSPAGE } from "../constants/textConstants";
 import Header from "../components/Header";
 import Card from "../components/Card";
 import ContactForm from "../components/ContactForm";
@@ -7,7 +8,7 @@ import HeroBannerImage from "../components/HeroBannerImage";
 import MainContainer from "../containers/MainContainer";
 import LeftInfoContainer from "../containers/LeftInfoContainer";
 import CardContainer from "../containers/CardContainer";
-import '../assets/styles/details-page.css'
+import '../assets/styles/details-page.css';
 
 // Function to fetch the details of the provided placeName from the arguments
 const fetchPlaceData = async (placeName) => {
@@ -65,8 +66,8 @@ const DetailsPage = ({placeData}) => {
                             {placeDetails.fullDescription}
                         </p>
                     </div>  
-                    <h2 className="destinations-header">Similar Destinations</h2>
-                    <p className="destinations-subtext">Because you liked {placeDetails.city}</p>
+                    <h2 className="destinations-header">{DETAILSPAGE.DESTINATIONS_HEADER}</h2>
+                    <p className="destinations-subtext">{DETAILSPAGE.DESTINATIONS_SUBTEXT} {placeDetails.city}</p>
                     <CardContainer>
                         {relevantPlace.map((data, index) =>
                             <Card key={index} place={data.place} city={data.city} shortDescription={data.shortDescription} />

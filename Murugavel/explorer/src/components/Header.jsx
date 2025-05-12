@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import '../assets/styles/header.css'
+import { HEADER } from '../constants/textConstants';
+import '../assets/styles/header.css';
 
 const Header = () => {
     const navigate = useNavigate();
@@ -11,9 +12,9 @@ const Header = () => {
                 <img src="../src/assets/images/logo.png" alt="Logo" />
             </div>
             <ul className="header-nav-list">
-                <li className="header-nav-link">Hotels</li>
-                <li className="header-nav-link">Bike Rentals</li>
-                <li className="header-nav-link">Restaurants</li>
+                <li className="header-nav-link">{HEADER.HOTELS}</li>
+                <li className="header-nav-link">{HEADER.BIKE_RENTALS}</li>
+                <li className="header-nav-link">{HEADER.RESTAURANTS}</li>
             </ul>
         </header>  
     );

@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState } from "react";
+import { CONTACTFORM } from "../constants/textConstants";
 import DropDown from "./DropDown";
 import Button from "./Button";
 import SuccessBanner from "./SuccessBanner";
@@ -84,10 +85,10 @@ const ContactForm = ({ placeData }) => {
     return (
         <div className="contact-section-wrapper">
             <div className="form-container ibm-plex">
-                <h2 className="contact-form-header">Contact Us</h2>
-                <p className="contact-form-text">Our Sales Team will reach out to you ASAP!</p>
+                <h2 className="contact-form-header">{CONTACTFORM.HEADER}</h2>
+                <p className="contact-form-text">{CONTACTFORM.INFO}</p>
                 <form className="contact-form" onSubmit={handleSubmit}>
-                    <label htmlFor="name" className="label-text">Name</label>
+                    <label htmlFor="name" className="label-text">{CONTACTFORM.NAME}</label>
                     <input type="text" id="name" ref={nameRef} onBlur={handleNameChange} />
                     <p className="error-text">{formErr.nameErr}</p>
 
@@ -97,10 +98,10 @@ const ContactForm = ({ placeData }) => {
                     <DropDown placeData={placeData} selectedValue={destination} handleChange={handleDestChange} selectedPlace={source} labelText={'Where would you like to go?'} inputID={'destination'} />
                     <p className="error-text">{formErr.destErr}</p>
 
-                    <label htmlFor="contact-number" className="label-text">Contact Number</label>
+                    <label htmlFor="contact-number" className="label-text">{CONTACTFORM.NUMBER}</label>
                     <input type="tel" id="contact-number" ref={numberRef} onBlur={handleNumberChange}/>
                     <p className="error-text">{formErr.numberErr}</p>
-                    <Button>SUBMIT INTEREST</Button>
+                    <Button>{CONTACTFORM.BUTTON}</Button>
                 </ form>
             </div>
             {/* Displaying successbanner on successful submission of the form */}
