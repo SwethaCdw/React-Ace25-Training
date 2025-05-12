@@ -11,7 +11,6 @@ const CityPromo = ({placeInfo}) => {
             const value = await response.json();
             const temperature = await value.current.temp_c + CONSTANTS.TEMPERATURE_UNIT;
             setTemperature(temperature);
-            console.log(temperature)
         }
 
         fetchtemperature();

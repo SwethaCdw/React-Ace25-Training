@@ -9,7 +9,6 @@ import InputElement from "../inputElement/InputElement";
 
 
 const ContactForm = ({placeData}) => {
-    const place = useParams();
     const nameValue = useRef();
     const numberValue = useRef();
     const [nameError, setNameError] = useState('');
@@ -19,10 +18,6 @@ const ContactForm = ({placeData}) => {
     const nameRegex = /^[a-z A-Z]+$/;
     const numberRegex = /^[0-9]+$/;
     const [isSubmitted, SetIsSubmitted] = useState(false);
-    const [submittedData, setSubmittedData] = useState({});
-
-
-
 
     const handleNameChange = (event) => {
         const value = event.target.value;
@@ -56,11 +51,6 @@ const ContactForm = ({placeData}) => {
         event.preventDefault();
         if(nameValue.current.value && numberValue.current.value && !nameError && !numberError){
             SetIsSubmitted(true);
-            setSubmittedData({
-                name: nameValue.current.value,
-                source: source,
-                destination: destination
-            })
 
         event.target.reset();
         setTimeout(handleBanner, 10000);
@@ -80,7 +70,6 @@ const ContactForm = ({placeData}) => {
 
     const handleBanner = () => {
         SetIsSubmitted(false);
-        setSubmittedData({});
     }
 
 
@@ -96,7 +85,7 @@ const ContactForm = ({placeData}) => {
                 <InputElement labelName={CONSTANTS.CONTACT_NUMBER_LABEL}  valueRef={numberValue} handleChange={handleNumberChange} error={numberError}/>
                 <Button className={styles.contact_form_submit}>{CONSTANTS.FORM_SUBMIT_BUTTON}</Button>
             </form>
-            {isSubmitted && <SuccessBanner submittedData={submittedData} />}
+            {isSubmitted && <SuccessBanner name={nameValue.current} source={source} destination={destination} />}
         </section>
     )
 }
