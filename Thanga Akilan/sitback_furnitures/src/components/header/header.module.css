@@ -1,0 +1,43 @@
+
+
+.header{
+    color: #000;
+    background-color: #FFF;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.85rem 2.5rem;
+    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.2);
+}
+
+.heading{
+    font-size: 1rem;
+    line-height: 1rem;
+}
+
+.nav_bar{
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.nav_element{
+    color: #000;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav_element:hover, .nav_current_selection{
+    color: #000;
+    text-decoration: underline;
+    text-underline-offset: 1.05rem;
+    text-decoration-thickness: 5px;
+}
+
+
+.header_logout{
+    text-decoration: none;
+    color: #000;
+}

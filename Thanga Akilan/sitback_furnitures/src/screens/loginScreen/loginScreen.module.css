@@ -1,0 +1,74 @@
+
+.login_screen_main_section{
+    background-image: url('../../assets/form_background.jpg');
+    background-size: contain;
+    width: 100vw;
+    height: 100vh;
+    color: #FFF;
+}
+
+.form_section{
+    width: 32%;
+    padding: 3.5rem 2% 0;
+    background-color: #000000aa;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 17%;
+    left: 61.75%;
+    border-radius: 1.5rem;
+}
+
+.form_heading, .form_subheading{
+    text-align: center;
+}
+
+.form_heading{
+    line-height: 4rem;
+    font-size: 4.5rem;
+    font-weight: 400;
+}
+
+.form_subheading{
+    line-height: 3rem;
+    font-size: 3.5rem;
+    font-weight: 400;
+}
+
+.login_form{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form_label{
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin: 2rem 0 0.5rem;
+}
+
+.form_input{
+    background-color: #ffffff00;
+    color: #FFFFFF;
+    outline: none;
+    border: 1px solid #FFF;
+    padding: 1.1rem 0.75rem;
+    font-size: 1.5rem;
+}
+
+.error{
+    color: #FF0000;
+}
+
+.form_button{
+    width: 10rem;
+    padding: 1.1rem 0;
+    font-size: 1.5rem;
+    border-radius: 0 0 1rem 0;
+    position: relative; 
+    top: 2rem;
+    left: 65%;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+}
