@@ -48,6 +48,7 @@ const LoginScreen = () => {
             localStorage.setItem('user',JSON.stringify({userName, password}));
             navigate('/categories/couches');
         }else{
+            setNameError("invalid Username")
             setPasswordError("invalid Password")
         }
 

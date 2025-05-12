@@ -1,5 +1,5 @@
 import Header from "../../components/header/header"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CartContext from "../../context/context";
 import Card from "../../components/card/card";
 import styles from "./orderConfirmationScreen.module.css";
@@ -7,6 +7,11 @@ import { ORDER_CONFIRMATION_SCREEN as CONSTANTS } from "../../constants";
 
 const OrderConfirmationScreen = () => {
     const { cart } = useContext(CartContext)
+    const [user, setUser] = useState(()=>{
+      const userData = JSON.parse(localStorage.getItem("user"));
+      console.log(userData.userName);
+      return (userData ? userData.userName : "");
+    })
     
 
     return(
@@ -14,7 +19,7 @@ const OrderConfirmationScreen = () => {
         <Header />
         <main className={styles.orderComfirmation_main_section}>
             <h2 className={styles.orderConfirmation_heading}>{CONSTANTS.HEADING}</h2>
-            <p className={styles.orderConfirmation_message}>{CONSTANTS.MESSAGE()}</p>
+            <p className={styles.orderConfirmation_message}>{CONSTANTS.MESSAGE(user)}</p>
             <div className={styles.cart_items_container}>
           {cart.map((item) => (
             <Card

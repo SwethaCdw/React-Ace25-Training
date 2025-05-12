@@ -3,6 +3,7 @@ import { HEADER } from '../../constants';
 import { useContext, useEffect, useState } from 'react';
 import CartContext from '../../context/context';
 import { useNavigate } from 'react-router';
+import { GoTriangleDown } from "react-icons/go";
 
 const Header = () => {
     const navigate = useNavigate();
@@ -28,7 +29,7 @@ const Header = () => {
     return(
         <header className={styles.header}>
             <div className={styles.heading_wrapper}>
-                <h1 className={styles.heading}>{HEADER.HEADING}</h1>
+                <h1 className={styles.heading}><a href='/'>{HEADER.HEADING}</a></h1>
             </div> 
             <ul className={styles.nav_bar}>
                 <li><a className={styles.nav_element} href={HEADER.NAV_BAR.ELEMENT_1.LINK} >{HEADER.NAV_BAR.ELEMENT_1.NAME}</a></li>
@@ -38,7 +39,7 @@ const Header = () => {
             <div className={styles.profile_container}>
                 {
                     isLoggedIn? (
-                        <button onClick={handleLogOut}>{userName}</button>)
+                        <a className={styles.header_logout} onClick={handleLogOut}>{userName}<GoTriangleDown /></a>)
                     :(
                         <a className={styles.header_logout} href='/login'>{HEADER.PROFILE.LOGGED_OUT}</a>)
                 }

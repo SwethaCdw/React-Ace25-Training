@@ -41,6 +41,7 @@
     top: 75%;
     right: 5%;
     border-radius: 0.25rem;
+    align-items: center;
 }
 
 .cart_quantity_incrementor{
@@ -48,10 +49,12 @@
     height: 2rem;
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.15rem;
+    font-weight: 300;
 }
 
 .cart_quantity_value{
-    font-size: 1rem;
+    font-size: 0.7rem;
+    font-weight: 550;
     padding: 0 0.5rem;
 }

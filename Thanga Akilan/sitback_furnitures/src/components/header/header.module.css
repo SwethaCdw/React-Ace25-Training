@@ -7,13 +7,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.85rem 2.5rem;
+    padding: 1.6rem 2.8rem 1.25rem;
     box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.2);
 }
 
 .heading{
-    font-size: 1rem;
+    font-size: 1.15rem;
+    font-weight: 500;
     line-height: 1rem;
+    letter-spacing: 1px;
+}
+
+.heading a{
+    text-decoration: none;
+    color: #000;
+
 }
 
 .nav_bar{
@@ -27,17 +35,25 @@
     color: #000;
     cursor: pointer;
     text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
 }
 
 .nav_element:hover, .nav_current_selection{
     color: #000;
     text-decoration: underline;
     text-underline-offset: 1.05rem;
-    text-decoration-thickness: 5px;
+    text-decoration-thickness: 7px;
 }
 
 
 .header_logout{
+    display: flex;
+    align-items: center;
+    column-gap: 0.25rem;
     text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
     color: #000;
+    cursor: pointer;
 }
