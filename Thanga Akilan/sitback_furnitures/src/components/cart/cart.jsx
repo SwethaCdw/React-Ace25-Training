@@ -1,26 +1,43 @@
 import styles from "./Cart.module.css"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { CART } from "../../constants";
+import CartContext from "../../context/context";
 
 
-const Cart =({ id, name, price, imageURL, quantity: initialQuantity=1 }) => {
-    const [quantity, setQuantity] = useState(initialQuantity);
+
+
+const Cart =({  name, price, imageURL}) => {
+  const {cart, setCart } = useContext(CartContext);
+    const [quantity, setQuantity] = useState(()=>{
+      const expectedIndex = cart.findIndex(item => (item.name==name && item.price==price));
+      return ((expectedIndex!=-1) ? cart[expectedIndex].quantity : 1 );
+    });
+
+
   
-    // Update localStorage when quantity changes
     useEffect(() => {
-      const cartData = JSON.parse(localStorage.getItem('cart')) || {};
-      if (cartData[id]) {
-        cartData[id].quantity = quantity;
-        localStorage.setItem('cart', JSON.stringify(cartData));
-      }
-    }, [quantity, id]);
+      const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+      const existingIndex = cart.findIndex(
+        item => item.name === name && item.price === price
+      );
+      if (existingIndex !== -1) {
+        const updatedCart = [...cart];
+        updatedCart[existingIndex] = {
+          ...updatedCart[existingIndex],
+          quantity: quantity,
+        };
+        setCart(updatedCart);
+      localStorage.setItem('cart', JSON.stringify(cartData));}
+    }, [quantity]);
+
+
   
     const handleIncrease = () => {
-      setQuantity(prev => prev + 1);
+      setQuantity(prev => prev+1);
     };
   
     const handleDecrease = () => {
-      setQuantity(prev => (prev > 1 ? prev - 1 : 1)); // Prevent going below 1
+      setQuantity(prev => prev-1)
     };
 
     return(

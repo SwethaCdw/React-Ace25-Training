@@ -39,7 +39,14 @@
     font-size: 0.9rem;
 }
 
-.nav_element:hover, .nav_current_selection{
+.active_nav_element{
+    color: #000;
+    text-decoration: underline;
+    text-underline-offset: 1.05rem;
+    text-decoration-thickness: 7px;
+}
+
+.nav_element:hover{
     color: #000;
     text-decoration: underline;
     text-underline-offset: 1.05rem;

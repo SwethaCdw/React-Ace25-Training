@@ -3,7 +3,7 @@ import { CARD } from "../../constants";
 import { useContext } from "react";
 import CartContext from "../../context/context";
 
-const Card = ({name, price, imageURL, description, gurantee, quantity, setIsCartEmpty, isPurchase = true}) => {
+const Card = ({name, price, imageURL, description, gurantee, quantity, isPurchase = true}) => {
 
     const {cart, setCart} = useContext(CartContext);
 
@@ -12,21 +12,11 @@ const Card = ({name, price, imageURL, description, gurantee, quantity, setIsCart
       item => item.name === name && item.price === price
     );
 
-
-    if (existingIndex !== -1) {
-      // Item exists, increase quantity
-      const updatedCart = [...cart];
-      updatedCart[existingIndex] = {
-        ...updatedCart[existingIndex],
-        quantity: updatedCart[existingIndex].quantity + 1,
-      };
-      setCart(updatedCart);
-    } else {
-      // Item doesn't exist, add new item
+    if (existingIndex == -1) {
+      console.log(existingIndex);
       const newItem = { name, price, imageURL, description, quantity: 1 };
       setCart([...cart, newItem]);
     }
-    setIsCartEmpty(false);
   };
     return(
         <div className={styles.card}>

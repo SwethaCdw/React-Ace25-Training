@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { MYCART } from "../../constants";
 import CartContainer from "../../containers/cartContainer";
@@ -7,13 +7,15 @@ import CartContext from "../../context/context";
 
 const MyCart = () => {
     const navigate = useNavigate();
-
+    const [totalPrice, setTotalPrice] = useState(0);
     const {cart} = useContext(CartContext);
-    const totalPrice = cart.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
 
+
+     useEffect(()=>{
+        setTotalPrice(cart.reduce(
+            (sum, item) => sum + item.price * item.quantity,0 ));
+        
+     },[cart]);
 
   const handleClick = () => {
     navigate('/confirmOrder');

@@ -1,5 +1,5 @@
 import Header from "../../components/header/header"
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CartContext from "../../context/context";
 import Card from "../../components/card/card";
 import styles from "./orderConfirmationScreen.module.css";
@@ -9,9 +9,12 @@ const OrderConfirmationScreen = () => {
     const { cart } = useContext(CartContext)
     const [user, setUser] = useState(()=>{
       const userData = JSON.parse(localStorage.getItem("user"));
-      console.log(userData.userName);
       return (userData ? userData.userName : "");
     })
+
+    useEffect(()=>{
+      localStorage.removeItem('cart');
+    },[])
     
 
     return(

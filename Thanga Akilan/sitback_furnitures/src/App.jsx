@@ -5,7 +5,7 @@ import { Navigate } from 'react-router'
 import ShoppingScreen from './screens/shoppingScreen/shoppingScreen'
 import LoginScreen from './screens/loginScreen/loginScreen';
 import PremiumScreen from './screens/premiumScreen/premiumScreen';
-import OrderConfirmationScreen from "./screens/orderCOnfirmationScreen/orderConfirmationScreen"
+import OrderConfirmationScreen from './screens/orderConfirmationScreen/orderConfirmationScreen.jsx';
 import CartContext from "./context/context.jsx";
 
 const ProtectedRoute = ({ children }) => {
@@ -16,17 +16,26 @@ const ProtectedRoute = ({ children }) => {
 function App() {  
   const [isCartEmpty, setIsCartEmpty] = useState(true);  
   const [cart, setCart] = useState(()=>{
-    const value = localStorage.getItem("cart");
-    return(!value ? (JSON.parse(value), setIsCartEmpty(false)): []);
+    const value = JSON.parse(localStorage.getItem("cart"));
+    if(value && value.length!=0){
+      setIsCartEmpty(false);
+      return value;
+    }else{
+      return [];
+    }
   });
+
 
   useEffect(()=>{
     localStorage.setItem('cart', JSON.stringify(cart));
+    if(cart.length!=0){
+      setIsCartEmpty(false);
+    }
   },[cart])
 
   const router = createBrowserRouter([
     {path:'/', element: <Navigate to="/categories/couches" />},
-    {path:'/categories/:categoryID', element: <ShoppingScreen setIsCartEmpty={setIsCartEmpty} isCartEmpty={isCartEmpty}/>},
+    {path:'/categories/:categoryID', element: <ShoppingScreen />},
     {path:'/confirmOrder', element: <OrderConfirmationScreen />},
     {path:'/premium', element: <ProtectedRoute> <PremiumScreen /></ProtectedRoute>},
     {path:'/login', element: <LoginScreen />}
@@ -34,7 +43,7 @@ function App() {
 
 
   return (
-      <CartContext.Provider value={{cart , setCart}}>
+      <CartContext.Provider value={{cart , setCart, isCartEmpty}}>
         <RouterProvider router={router} />
       </CartContext.Provider>
   )

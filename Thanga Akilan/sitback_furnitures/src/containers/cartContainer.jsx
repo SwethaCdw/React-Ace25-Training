@@ -1,5 +1,5 @@
-import Cart from "../components/cart/Cart";
-import { useContext } from "react";
+import Cart from "../components/cart/cart";
+import { useContext, useEffect } from "react";
 import CartContext from "../context/context";
 import styles from "../screens/shoppingScreen/shoppingScreen.module.css"
 
@@ -12,7 +12,7 @@ const CartContainer = () => {
         {cart.length > 0 ? (
           cart.map((item) => (
             <Cart
-              key={item.name} // assuming name is unique
+              key={item.name}
               name={item.name}
               price={item.price}
               imageURL={item.imageURL}
