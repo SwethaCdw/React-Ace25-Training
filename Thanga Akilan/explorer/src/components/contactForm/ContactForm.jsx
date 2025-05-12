@@ -47,13 +47,13 @@ const ContactForm = ({placeData}) => {
         }
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         if(nameValue.current.value && numberValue.current.value && !nameError && !numberError){
             SetIsSubmitted(true);
 
+        await setTimeout(handleBanner, 10000);
         event.target.reset();
-        setTimeout(handleBanner, 10000);
         } 
         else if(!nameValue.current.value || !numberValue.current.value){
 
@@ -85,7 +85,7 @@ const ContactForm = ({placeData}) => {
                 <InputElement labelName={CONSTANTS.CONTACT_NUMBER_LABEL}  valueRef={numberValue} handleChange={handleNumberChange} error={numberError}/>
                 <Button className={styles.contact_form_submit}>{CONSTANTS.FORM_SUBMIT_BUTTON}</Button>
             </form>
-            {isSubmitted && <SuccessBanner name={nameValue.current} source={source} destination={destination} />}
+            {isSubmitted && <SuccessBanner name={nameValue.current.value} source={source} destination={destination} />}
         </section>
     )
 }
