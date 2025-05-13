@@ -38,10 +38,6 @@
 
 
 .cart_buy_button{
-    height: 2.5rem;
-    width: 8.5rem;
-    background-color: #000000;
-    color: #FFFFFF;
-    border: none;
-    cursor: pointer;
+    height: 2.25rem;
+    padding: 0 1.15rem;
 }

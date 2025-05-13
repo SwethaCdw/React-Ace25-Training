@@ -4,6 +4,7 @@ import { MYCART } from "../../constants";
 import CartContainer from "../../containers/cartContainer";
 import styles from "./MyCart.module.css"
 import CartContext from "../../context/context";
+import Button from "../button/button";
 
 const MyCart = () => {
     const navigate = useNavigate();
@@ -31,7 +32,7 @@ const MyCart = () => {
                     <p className={styles.my_cart_total_amount}>{MYCART.INFO_SECTION.TOTAL_AMOUNT.NAME}</p>
                     <p className={styles.my_cart_amount}>{MYCART.INFO_SECTION.TOTAL_AMOUNT.PRICE(totalPrice)}</p>
                 </div>
-                <button className={styles.cart_buy_button} onClick={handleClick}>{MYCART.INFO_SECTION.BUTTON}</button>
+                <Button className={styles.cart_buy_button} onClick={handleClick}>{MYCART.INFO_SECTION.BUTTON}</Button>
             </div>
         </aside>
     )

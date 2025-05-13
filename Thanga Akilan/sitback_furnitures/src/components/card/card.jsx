@@ -2,6 +2,7 @@ import styles from "./card.module.css"
 import { CARD } from "../../constants";
 import { useContext } from "react";
 import CartContext from "../../context/context";
+import Button from "../button/button";
 
 const Card = ({name, price, imageURL, description, gurantee, quantity, isPurchase = true}) => {
 
@@ -35,7 +36,7 @@ const Card = ({name, price, imageURL, description, gurantee, quantity, isPurchas
                     <p className={styles.card_gurantee}>{CARD.GURANTEE.TEXT(gurantee)}</p>
                 </div>}
                 {isPurchase && <><hr className={styles.horizontal_line}/>
-                <button className={styles.card_button} onClick={handleClick}>{CARD.BUTTON}</button></>}
+                <Button className={styles.card_button} onClick={handleClick}>{CARD.BUTTON}</Button></>}
             </div>
         </div>
     )

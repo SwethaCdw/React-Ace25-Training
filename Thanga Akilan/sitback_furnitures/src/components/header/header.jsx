@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from 'react';
 import CartContext from '../../context/context';
 import { useLocation, useNavigate, useParams } from 'react-router';
 import { GoTriangleDown } from "react-icons/go";
+import Button from '../button/button';
 
 const Header = () => {
     const navigate = useNavigate();
@@ -41,11 +42,16 @@ const Header = () => {
             </ul>
             <div className={styles.profile_container}>
                 {
-                    isLoggedIn? (
-                        <a className={styles.header_logout} onClick={handleLogOut}>{userName}<GoTriangleDown /></a>)
+                    (!isLoggedIn)? (
+                        <div><a className={styles.header_logout} href='/login'>{HEADER.PROFILE.LOGGED_OUT}</a></div>)
                     :(
-                        <a className={styles.header_logout} href='/login'>{HEADER.PROFILE.LOGGED_OUT}</a>)
-                }
+                       <div className={styles.logout_container}>
+                            <a className={styles.header_logout}>{userName}<GoTriangleDown /></a>
+                    
+                            <div className={styles.profile_logout_dropdown}>
+                                <Button onClick={handleLogOut}>Log Out</Button>
+                            </div>
+                        </div>)}
             </div>
         </header>
     )

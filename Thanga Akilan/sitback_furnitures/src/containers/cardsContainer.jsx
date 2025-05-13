@@ -5,7 +5,7 @@ import styles from "../screens/shoppingScreen/shoppingScreen.module.css";
 
 
 
-const CardsContainer = () => {
+const CardsContainer = ({setIsLoading}) => {
     const [productData, setProductData] = useState([]);
     const {categoryID} = useParams();
 
@@ -17,6 +17,7 @@ const CardsContainer = () => {
             const response = await fetch(`https://jsonmockserver.vercel.app/api/shopping/furniture/products?category=${category}`);
             const data = await response.json();
             setProductData(data);
+            setIsLoading(false);
         }
 
         fetchProductDetails(categoryID);
