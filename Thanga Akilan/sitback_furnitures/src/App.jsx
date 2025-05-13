@@ -1,6 +1,6 @@
 
 import {createBrowserRouter, RouterProvider } from 'react-router'
-import { useEffect, useState} from "react"
+import { useEffect, useState, Suspense} from "react"
 import { Navigate } from 'react-router'
 import ShoppingScreen from './screens/shoppingScreen/shoppingScreen'
 import LoginScreen from './screens/loginScreen/loginScreen';

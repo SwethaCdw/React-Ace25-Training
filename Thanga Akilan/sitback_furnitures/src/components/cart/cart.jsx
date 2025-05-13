@@ -37,7 +37,9 @@ const Cart =({  name, price, imageURL}) => {
     };
   
     const handleDecrease = () => {
+      if(quantity>0){
       setQuantity(prev => prev-1)
+      }
     };
 
     return(

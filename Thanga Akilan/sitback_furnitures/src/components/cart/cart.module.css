@@ -3,53 +3,55 @@
 .cart{
     display: flex;
     align-items: center;
-    gap: 1rem;
-    border-radius: 1rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     background-color: #FFFFFF;
     position: relative;
 }
 
 .cart_image_wrapper{
-    width: 8rem;
-    height: 5.5rem;
+    width: 6.2rem;
+    height: 5.25rem;
     position: relative;
-    top: 0.5rem;
 
 }
 
 .cart_image{
-    width: 100%;
+    width: 125%;
     height: 100%;
-    border-radius: 1rem;
+    border-radius: 0.65rem;
     object-fit: cover;
+    position: absolute;
+    top: 0.5rem;
+    left: -2.25rem;
 }
 
 .cart_info{
     flex: 1;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 
 .cart_name{
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .cart_quantity{
     display: flex;
     background-color: #FFF;
     position: absolute;
-    top: 75%;
+    top: 85%;
     right: 5%;
     border-radius: 0.25rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     align-items: center;
 }
 
 .cart_quantity_incrementor{
-    width: 2rem;
-    height: 2rem;
+    width: 1.75rem;
+    height: 1.65rem;
     background: none;
     border: none;
-    font-size: 1.15rem;
+    font-size: 0.75rem;
     font-weight: 300;
 }
 

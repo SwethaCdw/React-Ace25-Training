@@ -15,10 +15,10 @@ const ShoppingScreen = () => {
         <>
             <Header />
             <main className={styles.shopping_screen_main_section}>
-                    {isLoading && <PacmanLoader />}
+                    {isLoading && <PacmanLoader size={80} enabled={isLoading.toString()} style={{position:"fixed", top:"50%", right:"50%" }}/>}
                     <>
                         <CardsContainer setIsLoading={setIsLoading}/> 
-                        {(!isCartEmpty)?<MyCart/>:""}
+                        {(!isLoading && !isCartEmpty)?<MyCart/>:""}
                     </>
             </main>
         </>
