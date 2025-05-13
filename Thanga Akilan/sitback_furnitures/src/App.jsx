@@ -8,6 +8,7 @@ import PremiumScreen from './screens/premiumScreen/premiumScreen';
 import OrderConfirmationScreen from './screens/orderConfirmationScreen/orderConfirmationScreen.jsx';
 import CartContext from "./context/context.jsx";
 
+// Protected route for registered users
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = !!localStorage.getItem("user"); 
   return isAuthenticated ? children : <Navigate to="/login" replace />;
@@ -26,6 +27,7 @@ function App() {
   });
 
 
+  // Set cart from local storage to context state
   useEffect(()=>{
     localStorage.setItem('cart', JSON.stringify(cart));
     if(cart.length!=0){
@@ -33,6 +35,7 @@ function App() {
     }
   },[cart])
 
+  // Create BrowserRouter with the required routes
   const router = createBrowserRouter([
     {path:'/', element: <Navigate to="/categories/couches" />},
     {path:'/categories/:categoryID', element: <ShoppingScreen />},

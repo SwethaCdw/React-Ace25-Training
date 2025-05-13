@@ -1,5 +1,5 @@
 
-
+/* Cart Section */
 .my_cart_section{
     overflow-y: scroll;
     background-color: #F7F7F7;
@@ -22,7 +22,7 @@
 }
 
 
-
+/* Cart Bottom Controls */
 .my_cart_bottom_pad{
     background-color: #FFFFFF;
     height: 7.5rem;

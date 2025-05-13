@@ -9,6 +9,7 @@
     position: relative;
 }
 
+/* Image Wrapper */
 .cart_image_wrapper{
     width: 6.2rem;
     height: 5.25rem;
@@ -26,6 +27,7 @@
     left: -2.25rem;
 }
 
+/* Card Content Section */
 .cart_info{
     flex: 1;
     font-size: 0.7rem;
@@ -46,6 +48,7 @@
     align-items: center;
 }
 
+/* Card Incrementor */
 .cart_quantity_incrementor{
     width: 1.75rem;
     height: 1.65rem;

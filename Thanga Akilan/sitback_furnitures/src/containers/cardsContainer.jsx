@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import Card from "../components/card/card";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../screens/shoppingScreen/shoppingScreen.module.css";
 
 
@@ -9,9 +9,7 @@ const CardsContainer = ({setIsLoading}) => {
     const [productData, setProductData] = useState([]);
     const {categoryID} = useParams();
 
-
-
-
+    // Fetch products from external API
     useEffect (()=>{
         const fetchProductDetails = async (category) => {
             const response = await fetch(`https://jsonmockserver.vercel.app/api/shopping/furniture/products?category=${category}`);

@@ -49,7 +49,7 @@ const Header = () => {
                             <a className={styles.header_logout}>{userName}<GoTriangleDown /></a>
                     
                             <div className={styles.profile_logout_dropdown}>
-                                <Button onClick={handleLogOut}>Log Out</Button>
+                                <Button onClick={handleLogOut}>{HEADER.PROFILE.LOGGED_IN}</Button>
                             </div>
                         </div>)}
             </div>

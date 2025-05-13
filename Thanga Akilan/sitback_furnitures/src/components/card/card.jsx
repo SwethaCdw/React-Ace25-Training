@@ -5,16 +5,14 @@ import CartContext from "../../context/context";
 import Button from "../button/button";
 
 const Card = ({name, price, imageURL, description, gurantee, quantity, isPurchase = true}) => {
-
     const {cart, setCart} = useContext(CartContext);
 
+    // Add to cart
     const handleClick = () =>{
     const existingIndex = cart.findIndex(
       item => item.name === name && item.price === price
     );
-
     if (existingIndex == -1) {
-      console.log(existingIndex);
       const newItem = { name, price, imageURL, description, quantity: 1 };
       setCart([...cart, newItem]);
     }
@@ -31,10 +29,11 @@ const Card = ({name, price, imageURL, description, gurantee, quantity, isPurchas
                 </div>
                 {!isPurchase && <p>{CARD.QUANTITY(quantity)}</p>}
                 <p className={styles.card_description}>{description}</p>
-                {gurantee && <div className={styles.guarantee_info}>
-                    <img className={styles.guarantee_image} src={CARD.GURANTEE.LOGO.URL} alt={CARD.GURANTEE.LOGO.NAME} />
-                    <p className={styles.card_gurantee}>{CARD.GURANTEE.TEXT(gurantee)}</p>
-                </div>}
+                {gurantee && 
+                        <div className={styles.guarantee_info}>
+                            <img className={styles.guarantee_image} src={CARD.GURANTEE.LOGO.URL} alt={CARD.GURANTEE.LOGO.NAME} />
+                            <p className={styles.card_gurantee}>{CARD.GURANTEE.TEXT(gurantee)}</p>
+                        </div>}
                 {isPurchase && <><hr className={styles.horizontal_line}/>
                 <Button className={styles.card_button} onClick={handleClick}>{CARD.BUTTON}</Button></>}
             </div>

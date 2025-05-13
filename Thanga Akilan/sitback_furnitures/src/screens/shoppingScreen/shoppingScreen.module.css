@@ -1,10 +1,11 @@
 
-
+/* Shopping Screen */
 .shopping_screen_main_section{
     display:flex;
     
 }
 
+/* Card C0ntainer */
 .card_container{
     height: 56.75rem;
     overflow-y: scroll;
@@ -15,6 +16,8 @@
     padding: 2.75rem 2.9rem;
 }
 
+
+/* Cart Container */
 .cart_container{
     display: flex;
     flex-direction: column;
