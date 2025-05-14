@@ -6,6 +6,7 @@ import styles from "../screens/shoppingScreen/shoppingScreen.module.css"
 
 const CartContainer = () => {
     const {cart} = useContext(CartContext);
+    console.log(cart)
   
     return (
       <div className={styles.cart_container}>

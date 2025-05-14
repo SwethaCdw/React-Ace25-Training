@@ -64,7 +64,7 @@ const LoginScreen = () => {
                     <input className={styles.form_input} type="text" onChange={handleNameChange}/>
                     <p className={styles.error}>{nameError}</p>
                     <label className={styles.form_label}>{LOGIN.FORM.INPUT_2}</label>
-                    <input className={styles.form_input} type="text" onChange={handlePasswordChange}/> 
+                    <input className={styles.form_input} type="password" onChange={handlePasswordChange}/> 
                     <p className={styles.error}>{passwordError}</p>
                     <button type="submit" className={styles.form_button}>{LOGIN.FORM.BUTTON}</button>
                 </form>

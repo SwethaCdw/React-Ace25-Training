@@ -16,6 +16,7 @@ const Cart =({  name, price, imageURL}) => {
 
   
     useEffect(() => {
+      console.log("Quantity updated")
       const cartData = JSON.parse(localStorage.getItem('cart')) || [];
       const existingIndex = cart.findIndex(
         item => item.name === name && item.price === price

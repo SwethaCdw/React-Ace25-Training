@@ -15,6 +15,9 @@ const Card = ({name, price, imageURL, description, gurantee, quantity, isPurchas
     if (existingIndex == -1) {
       const newItem = { name, price, imageURL, description, quantity: 1 };
       setCart([...cart, newItem]);
+    }else{
+        const quantityToUpdate = cart[existingIndex].quantity;
+        setCart([...cart.slice(0, existingIndex), {name: name, price: price, imageURL: imageURL , description: description, quantity: }]);
     }
   };
     return(

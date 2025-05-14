@@ -29,6 +29,7 @@ function App() {
 
   // Set cart from local storage to context state
   useEffect(()=>{
+    console.log("cart changed : ",cart);
     localStorage.setItem('cart', JSON.stringify(cart));
     if(cart.length!=0){
       setIsCartEmpty(false);
