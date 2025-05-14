@@ -1,0 +1,12 @@
+.Promo_image_wrapper{
+    width: 63%;
+    z-index: -1;
+    height: auto;
+    margin-left: auto;
+}
+
+.Promo_image_wrapper img{
+    width: 100%;
+    height: 100%;
+}
+

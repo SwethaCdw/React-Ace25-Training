@@ -1,0 +1,94 @@
+import { useState, useRef } from "react";
+import SelectElement from "../selectElement/SelectElement"
+import SuccessBanner from "../successBanner/SuccessBanner";
+import styles from './ContactForm.module.css'
+import { useParams } from "react-router";
+import { CONTACT_US_FORM as CONSTANTS } from "../../contants";
+import Button from "../button/Button";
+import InputElement from "../inputElement/InputElement";
+
+
+const ContactForm = ({placeData}) => {
+    const nameValue = useRef();
+    const numberValue = useRef();
+    const [nameError, setNameError] = useState('');
+    const [numberError, setNumberError] = useState('');
+    const [source, setSource] = useState('');
+    const [destination, setDestination] = useState('');
+    const nameRegex = /^[a-z A-Z]+$/;
+    const numberRegex = /^[0-9]+$/;
+    const [isSubmitted, SetIsSubmitted] = useState(false);
+
+    const handleNameChange = (event) => {
+        const value = event.target.value;
+        if(!nameRegex.test(value)){
+            setNameError('Name can contain only alphabets!');
+        }
+        else if(value.length<8){
+            setNameError('Name should be longer');
+        }
+        else{
+            setNameError('');
+        }
+
+    }
+
+
+    const handleNumberChange = (event) => {
+        const value = event.target.value;
+        if(!numberRegex.test(value)){
+            setNumberError('Contact Number can contain only number!');
+        }
+        else if(value.length!=10){
+            setNumberError('There should be only 10 digits');
+        }
+        else{
+            setNumberError('');
+        }
+    }
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        if(nameValue.current.value && numberValue.current.value && !nameError && !numberError){
+            SetIsSubmitted(true);
+
+        await setTimeout(handleBanner, 10000);
+        event.target.reset();
+        } 
+        else if(!nameValue.current.value || !numberValue.current.value){
+
+        if(!nameValue.current.value){
+            setNameError('Name cannot be empty');
+        } 
+         
+        if(!numberValue.current.value){
+            setNumberError('Contact Number cannot be empty');
+        }
+        return;
+        }
+    }
+
+    const handleBanner = () => {
+        SetIsSubmitted(false);
+    }
+
+
+
+    return(
+        <section className={styles.contact_form_section}>
+            <h3 className={styles.contact_form_heading}>{CONSTANTS.HEADING}</h3>
+            <p className={styles.contact_form_subheading}>{CONSTANTS.SUBHEADING}</p>
+            <form className={styles.contact_form_input_container} onSubmit={handleSubmit}>
+                <InputElement labelName={CONSTANTS.NAME_LABEL}  valueRef={nameValue} handleChange={handleNameChange} error={nameError}/>
+                <SelectElement labelName={CONSTANTS.SOURCE_LABEL} placeData={placeData} setPlace={setSource} checkerValue={destination} name={"from"}/>
+                <SelectElement labelName={CONSTANTS.DESTINATION_LABEL} placeData={placeData} setPlace={setDestination} checkerValue={source} name={"to"}/>
+                <InputElement labelName={CONSTANTS.CONTACT_NUMBER_LABEL}  valueRef={numberValue} handleChange={handleNumberChange} error={numberError}/>
+                <Button className={styles.contact_form_submit}>{CONSTANTS.FORM_SUBMIT_BUTTON}</Button>
+            </form>
+            {isSubmitted && <SuccessBanner name={nameValue.current.value} source={source} destination={destination} />}
+        </section>
+    )
+}
+
+
+export default ContactForm;

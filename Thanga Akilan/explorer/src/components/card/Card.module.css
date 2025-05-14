@@ -1,0 +1,41 @@
+
+.card{
+    width: 32%;
+}
+
+.image_wrapper{
+    width: 100%;
+}
+
+.image_wrapper img{
+    width: 100%;
+}
+
+.card_heading{
+    font-weight: 250;
+    font-size: 2.2rem;
+    line-height: 1.25;
+    letter-spacing: 0.75px;
+    margin-top: 0.75rem;
+}
+
+.card_subheading{
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-top: 0.4rem;
+}
+
+.card_description{
+    font-size: 1.15rem;
+    font-weight: 350;
+    line-height: 1.335;
+    margin-top: 1.575rem;
+}
+
+.card_button{
+    margin-top: 1rem;
+    padding: 0.95rem 1.7rem;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}

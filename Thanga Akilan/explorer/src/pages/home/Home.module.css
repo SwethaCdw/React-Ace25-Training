@@ -1,0 +1,89 @@
+@value primary-color: #7A1655;
+
+main{
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* Pormo Section */
+
+.promo_section{
+    display: flex;
+    padding-left: 8.6%;
+}
+
+.promo_section_content{
+    max-width: 35%;
+    padding-top: 10.65rem;
+}
+
+.promo_heading{
+    font-size: 1.5rem;
+    letter-spacing: 0.45px;
+    font-weight: 450;
+    color: #9C5280;
+}
+
+.promo_subheading{
+    color: primary-color;
+    font-size: 4.535rem;
+    letter-spacing: 0.7px;
+    font-weight: 275;
+    line-height: 5.45rem;
+    margin-top: 2rem;
+    margin-bottom: 5.25rem;
+
+}
+
+.promo_subheading_highlight{
+    font-weight: 600;
+}
+
+
+
+.explore_button{
+    margin: 1.35rem 0 3rem;
+    padding: 0.8rem 2.35rem 0.8rem;
+    width: max-content;
+    background-color: primary-color;
+    font-size: 1.045rem;
+    transform: scaleY(1.15);
+    letter-spacing: 1px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Destinations Section */
+
+.destinations_section{
+    width: 100%;
+    padding: 0 6.575% 4.75%;
+    margin-top: 6.55rem;
+}
+
+
+
+.destinations_section_heading{
+    color: primary-color;
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.destinations_section_subheading{
+    color: primary-color;
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-top: 0.15rem;
+}
+
+.destinations_container{
+    margin-top: 2.65rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 5.35rem;
+}
