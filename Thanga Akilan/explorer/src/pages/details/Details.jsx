@@ -36,12 +36,11 @@ const Details = ({placeData}) => {
             const promises = data.relatedPlaces.map(place => getPlaceDetail(place));
             const result = await Promise.all(promises);
             setSimilarDestinations(result);
+            setIsLoading(false);
         }}
         catch(error) {
             console.log(error);
             navigate('/');
-        }finally{
-          setIsLoading(false);
         }
         };
       
