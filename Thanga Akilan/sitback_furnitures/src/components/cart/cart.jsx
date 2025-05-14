@@ -6,7 +6,7 @@ import CartContext from "../../context/context";
 
 
 
-const Cart =({  name, price, imageURL}) => {
+const Cart =({  name, price, imageURL, quantity}) => {
   const {cart, setCart } = useContext(CartContext);
     const [quantity, setQuantity] = useState(()=>{
       const expectedIndex = cart.findIndex(item => (item.name==name && item.price==price));

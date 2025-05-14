@@ -17,6 +17,7 @@ const CartContainer = () => {
               name={item.name}
               price={item.price}
               imageURL={item.imageURL}
+              quantity={item.quantity}
             />
           ))
         ) : (
