@@ -8,16 +8,14 @@ import CartContext from "../../context/context";
 
 const Cart =({  name, price, imageURL, initialQuantity}) => {
   const {cart, setCart } = useContext(CartContext);
-    // const [quantity, setQuantity] = useState(()=>{
-    //   const expectedIndex = cart.findIndex(item => (item.name==name && item.price==price));
-    //   return ((expectedIndex!=-1) ? cart[expectedIndex].quantity : 1 );
-    // });
-    const [quantity, setQuantity] = useState(initialQuantity);
+  const [quantity, setQuantity] = useState(initialQuantity);
 
+  useEffect(()=>{
+    setQuantity(initialQuantity)
+  },[initialQuantity]);
 
   
     useEffect(() => {
-      const cartData = JSON.parse(localStorage.getItem('cart')) || [];
       if(quantity==0){
         setCart(cart.filter(item => item.name != name && item.price != price));
         return;
@@ -33,8 +31,7 @@ const Cart =({  name, price, imageURL, initialQuantity}) => {
           quantity: quantity,
         };
         setCart(updatedCart);
-      localStorage.setItem('cart', JSON.stringify(cartData));}
-    }, [quantity]);
+    }}, [quantity]);
 
 
   

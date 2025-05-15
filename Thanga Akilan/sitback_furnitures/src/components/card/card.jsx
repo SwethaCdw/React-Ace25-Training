@@ -16,13 +16,14 @@ const Card = ({name, price, imageURL, description, gurantee, quantity, isPurchas
       const newItem = { name, price, imageURL, description, quantity: 1 };
       setCart([...cart, newItem]);
     }else{
+        console.log("I am here")
         const updatedCart = cart.map((item, index) =>
         index === existingIndex
           ? { ...item, quantity: item.quantity + 1 }
           : item
       );
       setCart(updatedCart);
-        console.log("hello : ", cart);
+        console.log("This is it : ", cart);
     }
   };
     return(
