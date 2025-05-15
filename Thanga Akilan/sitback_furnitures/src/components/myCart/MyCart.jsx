@@ -5,6 +5,7 @@ import CartContainer from "../../containers/cartContainer";
 import styles from "./MyCart.module.css"
 import CartContext from "../../context/context";
 import Button from "../button/button";
+import toast, { Toaster } from "react-hot-toast";
 
 const MyCart = () => {
     const navigate = useNavigate();
@@ -19,6 +20,10 @@ const MyCart = () => {
      },[cart]);
 
   const handleClick = () => {
+    if(cart.length===0){
+        toast.error("Cart is empty");
+        return;
+    }
     navigate('/confirmOrder');
   }
     return(
@@ -33,6 +38,7 @@ const MyCart = () => {
                     <p className={styles.my_cart_amount}>{MYCART.INFO_SECTION.TOTAL_AMOUNT.PRICE(totalPrice)}</p>
                 </div>
                 <Button className={styles.cart_buy_button} onClick={handleClick}>{MYCART.INFO_SECTION.BUTTON}</Button>
+                <Toaster position="bottom-right" reverseOrder={false} />
             </div>
         </aside>
     )

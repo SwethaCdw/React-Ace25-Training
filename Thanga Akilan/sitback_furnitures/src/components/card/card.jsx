@@ -16,8 +16,13 @@ const Card = ({name, price, imageURL, description, gurantee, quantity, isPurchas
       const newItem = { name, price, imageURL, description, quantity: 1 };
       setCart([...cart, newItem]);
     }else{
-        const quantityToUpdate = cart[existingIndex].quantity + 1;
-        setCart([...cart.filter(item => item.name!=name && item.price!=price),{ name, price, imageURL, description, quantity: 10 }]);
+        const updatedCart = cart.map((item, index) =>
+        index === existingIndex
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+      setCart(updatedCart);
+        console.log("hello : ", cart);
     }
   };
     return(
@@ -30,7 +35,7 @@ const Card = ({name, price, imageURL, description, gurantee, quantity, isPurchas
                     <h3 className={styles.card_name}>{name}</h3>
                     <p className={styles.card_price}>{CARD.PRICE(price)}</p>
                 </div>
-                {!isPurchase && <p>{CARD.QUANTITY(quantity)}</p>}
+                {!isPurchase && <p className={styles.card_quantity}>{CARD.QUANTITY(quantity)}</p>}
                 <p className={styles.card_description}>{description}</p>
                 {gurantee && 
                         <div className={styles.guarantee_info}>

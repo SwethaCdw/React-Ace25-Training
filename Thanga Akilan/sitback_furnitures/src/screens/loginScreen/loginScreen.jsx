@@ -29,6 +29,12 @@ const LoginScreen = () => {
         setUserName(nameValue);
     }
 
+    const handlePasswordSubmit = (event) => {
+        const passwordValue = event.target.value;
+        setPassword(passwordValue);
+
+    }
+
 
     const handlePasswordChange = (event) => {
         const passwordValue = event.target.value;
@@ -39,7 +45,6 @@ const LoginScreen = () => {
         }else{
             setPasswordError('');
         }
-        setPassword(passwordValue);
     }
 
     const handleSubmit = (event) => {
@@ -61,10 +66,10 @@ const LoginScreen = () => {
                 <h2 className={styles.form_subheading}>{LOGIN.SUB_HEADING}</h2>
                 <form className={styles.login_form} onSubmit={handleSubmit}>
                     <label className={styles.form_label}>{LOGIN.FORM.INPUT_1}</label>
-                    <input className={styles.form_input} type="text" onChange={handleNameChange}/>
+                    <input className={styles.form_input} type="text" onBlur={handleNameChange}/>
                     <p className={styles.error}>{nameError}</p>
                     <label className={styles.form_label}>{LOGIN.FORM.INPUT_2}</label>
-                    <input className={styles.form_input} type="password" onChange={handlePasswordChange}/> 
+                    <input className={styles.form_input} type="password" onChange={handlePasswordSubmit} onBlur={handlePasswordChange}/> 
                     <p className={styles.error}>{passwordError}</p>
                     <button type="submit" className={styles.form_button}>{LOGIN.FORM.BUTTON}</button>
                 </form>

@@ -20,7 +20,7 @@
 }
 
 .card_content{
-    margin-top: 0.65rem;
+    margin-top: 0.85rem;
 }
 
 .card_main_info{
@@ -37,17 +37,21 @@
     font-weight: 500;
 }
 
+.card_quantity{
+    font-size: 0.7rem;
+}
+
 .card_description{
     margin-top: 0.25rem;
     color: #4E4E4E;
-    font-size: 0.65rem;
+    font-size: 0.685rem;
     line-height: 1.25rem;
     font-weight: 400;
 }
 
 .guarantee_info{
     display: flex;
-    margin: 1rem 0 0.5rem;
+    margin: 0.85rem 0 0.65rem;
 
 }
 
@@ -58,8 +62,8 @@
 
 .card_gurantee{
     margin-left: 0.25rem;
-    font-size: 0.75rem;
-    font-weight: 500;
+    font-size: 0.775rem;
+    font-weight: 600;
     color: #008800;
 }
 

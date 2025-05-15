@@ -78,7 +78,7 @@ const PREMIUM_SCREEN = {
 
 const ORDER_CONFIRMATION_SCREEN = {
     HEADING:"Order Confirmation",
-    MESSAGE: (name="")=>(`Thank u ${name},for shopping with us. The items will be delivered within 7 days`)
+    MESSAGE: (name)=>(name!="" ? `Thank u ${name},for shopping with us. The items will be delivered within 7 days`:`Thank u for shopping with us.`)
 }
 
 

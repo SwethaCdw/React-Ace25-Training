@@ -11,6 +11,8 @@
 
 .my_card_content{
     padding: 2.65rem 2.5rem;
+    height: 50rem;
+    overflow-y: scroll;
 }
 
 .my_cart_heading{
@@ -24,8 +26,12 @@
 
 /* Cart Bottom Controls */
 .my_cart_bottom_pad{
+    position: fixed;
+    bottom: 0;
     background-color: #FFFFFF;
+    width: max-content;
     height: 7.5rem;
+    width: 26.5rem;
     display: flex;
     justify-content: space-between;
     padding: 2.1rem 2.25rem 0;
