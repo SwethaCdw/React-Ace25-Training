@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { MYCART } from "../../constants";
-import CartContainer from "../../containers/cartContainer";
+import { MYCART } from "../../constants/MyCartConstants.js";
+import CartContainer from "../../containers/cartsContainer/cartContainer.jsx";
 import styles from "./MyCart.module.css"
-import CartContext from "../../context/context";
+import { CartContext } from "../../context/cartContext";
 import Button from "../button/button";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -21,10 +21,10 @@ const MyCart = () => {
 
   const handleClick = () => {
     if(cart.length===0){
-        toast.error("Cart is empty");
+        toast.error(MYCART.TOAST.MESSAGE);
         return;
     }
-    navigate('/confirmOrder');
+    navigate(MYCART.NAVIGATE_TO);
   }
     return(
         <aside className={styles.my_cart_section}>
@@ -38,7 +38,7 @@ const MyCart = () => {
                     <p className={styles.my_cart_amount}>{MYCART.INFO_SECTION.TOTAL_AMOUNT.PRICE(totalPrice)}</p>
                 </div>
                 <Button className={styles.cart_buy_button} onClick={handleClick}>{MYCART.INFO_SECTION.BUTTON}</Button>
-                <Toaster position="bottom-right" reverseOrder={false} />
+                <Toaster position={MYCART.TOAST.POSITION} reverseOrder={false} />
             </div>
         </aside>
     )

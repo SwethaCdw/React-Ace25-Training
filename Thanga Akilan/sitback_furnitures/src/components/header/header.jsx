@@ -1,23 +1,23 @@
 import styles from './header.module.css'
-import { HEADER } from '../../constants';
+import { HEADER } from '../../constants/HeaderConstants';
 import { useContext, useEffect, useState } from 'react';
-import CartContext from '../../context/context';
+import { CartContext } from "../../context/cartContext";
 import { useLocation, useNavigate, useParams } from 'react-router';
 import { GoTriangleDown } from "react-icons/go";
+import { LOCAL_STORAGE } from '../../constants/localStorageConstants';
 import Button from '../button/button';
 
 const Header = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const {pathname} = location;
-    const page = useParams();
     const {setCart} = useContext(CartContext);
     const [userName, setUserName] = useState('');
     const[isLoggedIn, setIsLoggedIn] = useState(false);
     const [showLogoutBtn, setShowLogoutBtn] = useState(false);
 
     useEffect(()=>{
-        const user = JSON.parse(localStorage.getItem("user"));
+        const user = JSON.parse(localStorage.getItem(LOCAL_STORAGE.USER.NAME));
         if(user){
             setUserName(user.userName);
             setIsLoggedIn(true);
@@ -26,7 +26,7 @@ const Header = () => {
 
 
     const handleLogOut = () => {
-        localStorage.removeItem("user")
+        localStorage.removeItem(LOCAL_STORAGE.USER.NAME)
         setCart([]);
         setIsLoggedIn(false);
         navigate("/")
@@ -39,7 +39,7 @@ const Header = () => {
             <ul className={styles.nav_bar}>
                 <li><a className={`${ pathname == HEADER.NAV_BAR.ELEMENT_1.LINK ? styles.active_nav_element:styles.nav_element}`} href={HEADER.NAV_BAR.ELEMENT_1.LINK} >{HEADER.NAV_BAR.ELEMENT_1.NAME}</a></li>
                 <li><a className={`${pathname == HEADER.NAV_BAR.ELEMENT_2.LINK ? styles.active_nav_element:styles.nav_element}`} href={HEADER.NAV_BAR.ELEMENT_2.LINK} >{HEADER.NAV_BAR.ELEMENT_2.NAME}</a></li>
-                { isLoggedIn && <li><a className={`${pathname == HEADER.NAV_BAR.ELEMENT_3.LINK ? styles.active_nav_element:styles.nav_element}`} href={HEADER.NAV_BAR.ELEMENT_3.LINK} >{HEADER.NAV_BAR.ELEMENT_3.NAME}</a></li>}
+                <li className={`${isLoggedIn? "": styles.nav_element_hidden}`}><a className={`${pathname == HEADER.NAV_BAR.ELEMENT_3.LINK ? styles.active_nav_element:styles.nav_element}` } href={HEADER.NAV_BAR.ELEMENT_3.LINK} >{HEADER.NAV_BAR.ELEMENT_3.NAME}</a></li>
             </ul>
             <div className={styles.profile_container}>
                 {

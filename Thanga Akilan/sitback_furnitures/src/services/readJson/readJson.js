@@ -1,4 +1,4 @@
-import users from '../../assets/users.json'
+import users from '../../data/users.json'
 
 
 

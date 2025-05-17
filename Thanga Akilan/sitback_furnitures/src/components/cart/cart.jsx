@@ -1,58 +1,17 @@
 import styles from "./Cart.module.css"
-import { useState, useEffect, useContext } from "react";
-import { CART } from "../../constants";
-import CartContext from "../../context/context";
+import { displayPriceInINR as PRICE } from "../../utils/common.util.js"
 
 
 
 
-const Cart =({  name, price, imageURL, initialQuantity}) => {
-  const {cart, setCart } = useContext(CartContext);
-  const [quantity, setQuantity] = useState(initialQuantity);
-
-  useEffect(()=>{
-    setQuantity(initialQuantity)
-  },[initialQuantity]);
-
-  
-    useEffect(() => {
-      if(quantity==0){
-        setCart(cart.filter(item => item.name != name && item.price != price));
-        return;
-      }
-      const existingIndex = cart.findIndex(
-        item => item.name === name && item.price === price
-      );
-
-      if (existingIndex !== -1) {
-        const updatedCart = [...cart];
-        updatedCart[existingIndex] = {
-          ...updatedCart[existingIndex],
-          quantity: quantity,
-        };
-        setCart(updatedCart);
-    }}, [quantity]);
-
-
-  
-    const handleIncrease = () => {
-      setQuantity(prev => prev+1);
-    };
-  
-    const handleDecrease = () => {
-      if(quantity>0){
-      setQuantity(prev => prev-1)
-      }
-    };
-
-    return(
+const Cart =({  name, price, imageURL, quantity, handleDecrease, handleIncrease}) => (
         <div className={styles.cart}>
             <div className={styles.cart_image_wrapper}>
                 <img className={styles.cart_image} src={imageURL} alt={name} />
             </div>
             <div className={styles.cart_info}>
                 <p className={styles.cart_name}>{name}</p>
-                <p className={styles.cart_price}>{CART.PRICE(price)}</p>
+                <p className={styles.cart_price}>{PRICE(price)}</p>
             </div>
             <div className={styles.cart_quantity}>
                 <button className={styles.cart_quantity_incrementor} onClick={handleDecrease}>-</button>
@@ -60,7 +19,6 @@ const Cart =({  name, price, imageURL, initialQuantity}) => {
                 <button className={styles.cart_quantity_incrementor} onClick={handleIncrease}>+</button>
             </div>
         </div>
-    )
-}
+)
 
 export default Cart;

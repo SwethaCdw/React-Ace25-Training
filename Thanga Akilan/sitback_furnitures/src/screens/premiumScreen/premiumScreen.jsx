@@ -1,4 +1,4 @@
-import { PREMIUM_SCREEN as CONSTANTS } from "../../constants"
+import { PREMIUM_SCREEN as CONSTANTS } from "../../constants/PremiumScreen.js";
 import Header from "../../components/header/header";
 import styles from "./premiumScreen.module.css"
 
