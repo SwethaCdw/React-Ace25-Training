@@ -23,7 +23,8 @@ export const LOGIN = {
     },
     REGEX: {
         USERNAME: /^[a-z A-Z]+$/ ,
-        PASSWORD: /^([a-zA-Z]+)([0-9]+)([!@#$%^&*]+)$/
+        PASSWORD: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&])[A-Za-z\d@.#$!%*?&]{4,15}$/
+
     },
     NAVIGATE_TO: "/categories/couches"
 }

@@ -6,6 +6,7 @@ import { useLocation, useNavigate, useParams } from 'react-router';
 import { GoTriangleDown } from "react-icons/go";
 import { LOCAL_STORAGE } from '../../constants/localStorageConstants';
 import Button from '../button/button';
+import NavElement from '../navElement/NavElement';
 
 const Header = () => {
     const navigate = useNavigate();
@@ -37,9 +38,9 @@ const Header = () => {
                 <h1 className={styles.heading}><a href='/'>{HEADER.HEADING}</a></h1>
             </div> 
             <ul className={styles.nav_bar}>
-                <li><a className={`${ pathname == HEADER.NAV_BAR.ELEMENT_1.LINK ? styles.active_nav_element:styles.nav_element}`} href={HEADER.NAV_BAR.ELEMENT_1.LINK} >{HEADER.NAV_BAR.ELEMENT_1.NAME}</a></li>
-                <li><a className={`${pathname == HEADER.NAV_BAR.ELEMENT_2.LINK ? styles.active_nav_element:styles.nav_element}`} href={HEADER.NAV_BAR.ELEMENT_2.LINK} >{HEADER.NAV_BAR.ELEMENT_2.NAME}</a></li>
-                <li className={`${isLoggedIn? "": styles.nav_element_hidden}`}><a className={`${pathname == HEADER.NAV_BAR.ELEMENT_3.LINK ? styles.active_nav_element:styles.nav_element}` } href={HEADER.NAV_BAR.ELEMENT_3.LINK} >{HEADER.NAV_BAR.ELEMENT_3.NAME}</a></li>
+                {
+                    (HEADER.NAV_BAR).map((navElement => <NavElement path={pathname} isLoggedIn={isLoggedIn} link={navElement.LINK} name={navElement.NAME} loginRequired={navElement.LOGIN_REQUIRED}/>))
+                }
             </ul>
             <div className={styles.profile_container}>
                 {

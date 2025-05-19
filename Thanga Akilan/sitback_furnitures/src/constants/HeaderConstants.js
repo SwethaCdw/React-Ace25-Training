@@ -1,20 +1,23 @@
 
 export const HEADER = {
     HEADING: "SITBACK",
-    NAV_BAR: {
-        ELEMENT_1: {
+    NAV_BAR: [
+        {
             NAME: "COUCHES",
-            LINK: "/categories/couches"
+            LINK: "/categories/couches",
+            LOGIN_REQUIRED: false
         }, 
-        ELEMENT_2: {
+        {
             NAME: "CHAIRS",
-            LINK: "/categories/chairs"
+            LINK: "/categories/chairs",
+            LOGIN_REQUIRED: false
         },
-        ELEMENT_3:{
+        {
             NAME:"PREMIUM*",
-            LINK: "/premium"
+            LINK: "/premium",
+            LOGIN_REQUIRED: true
         }
-    },
+    ],
     PROFILE:{
         LOGGED_IN:"Log Out",
         LOGGED_OUT:"Login Now"
