@@ -51,6 +51,7 @@
 /* Card Incrementor */
 .cart_quantity_incrementor{
     width: 1.75rem;
+    cursor: pointer;
     height: 1.65rem;
     background: none;
     border: none;

@@ -25,7 +25,7 @@ const OrderConfirmationScreen = () => {
         price={item.price}
         description={item.description}
         quantity={item.quantity}
-        imageURL={item.imageURL}
+        imageURL={item.photo}
         isPurchase={false}
       />
     ))

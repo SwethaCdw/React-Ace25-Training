@@ -11,6 +11,7 @@
     height: 56.75rem;
     overflow-y: scroll;
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     column-gap: 2.3rem;
     row-gap: 3rem;
