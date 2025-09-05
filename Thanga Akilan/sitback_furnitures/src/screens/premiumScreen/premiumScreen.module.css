@@ -1,0 +1,30 @@
+
+
+.premiumPage_section{
+    display: flex;
+    justify-content: center;
+    padding-top: 7.65rem;
+}
+
+.premiumPage_background{
+    position: relative;
+    width: 73.5%;
+    height: 49rem;
+}
+
+.premiumPage_text_content{
+    position: absolute;
+    top: 64%;
+    left: 20%;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.premiumPage_heading{
+    font-size: 4.5rem;
+}
+
+.premiumPage_subheading{
+    font-size: 5rem;
+    font-weight: 400;
+}

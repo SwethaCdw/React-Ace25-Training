@@ -1,0 +1,29 @@
+
+/* Shopping Screen */
+.shopping_screen_main_section{
+    display:flex;
+    padding-top: 4.65rem;
+    
+}
+
+/* Card C0ntainer */
+.card_container{
+    height: 56.75rem;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 2.3rem;
+    row-gap: 3rem;
+    padding: 2.75rem 2.9rem 0;
+}
+
+
+/* Cart Container */
+.cart_container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    row-gap: 2rem;
+    padding-left: 2rem;
+}

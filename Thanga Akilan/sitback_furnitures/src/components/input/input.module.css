@@ -1,0 +1,19 @@
+
+.form_label{
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin: 2rem 0 0.5rem;
+}
+
+.form_input{
+    background-color: #ffffff00;
+    color: #FFFFFF;
+    outline: none;
+    border: 1px solid #FFF;
+    padding: 1.1rem 0.75rem;
+    font-size: 1.5rem;
+}
+
+.error{
+    color: #FF0000;
+}

@@ -1,0 +1,36 @@
+
+.login_screen_main_section{
+    background-image: url('/images/form_background.jpg');
+    background-size: contain;
+    width: 100vw;
+    height: 100vh;
+    color: #FFF;
+}
+
+.form_section{
+    width: 32%;
+    padding: 3.5rem 2% 0;
+    background-color: #000000aa;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 17%;
+    left: 61.75%;
+    border-radius: 1.5rem;
+}
+
+.form_heading, .form_subheading{
+    text-align: center;
+}
+
+.form_heading{
+    line-height: 4rem;
+    font-size: 4.5rem;
+    font-weight: 400;
+}
+
+.form_subheading{
+    line-height: 3rem;
+    font-size: 3.5rem;
+    font-weight: 400;
+}

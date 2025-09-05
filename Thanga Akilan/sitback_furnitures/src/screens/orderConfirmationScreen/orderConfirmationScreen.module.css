@@ -1,0 +1,23 @@
+
+.orderComfirmation_main_section{
+    padding: 8.5rem 10rem;
+}
+
+.orderConfirmation_heading{
+    font-weight: 500;
+    font-size: 1.35rem;
+
+}
+
+.orderConfirmation_message{
+    margin-top: 0.75rem;
+
+}
+
+.cart_items_container{
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2.75rem;
+    row-gap: 2rem;
+}
